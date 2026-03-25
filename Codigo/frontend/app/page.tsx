@@ -80,7 +80,7 @@ export default function Home() {
       id: 1,
       title: 'Projeto Viral #1',
       description: '+1M visualizações',
-      gradient: 'from-red-400 to-red-300',
+      gradient: 'from-red-600 to-rose-600',
       views: '1.2M',
       youtubeId: 'L8eRzOYhLuw', // ID do vídeo do YouTube (ex: o que vem depois do v=)
     },
@@ -88,21 +88,21 @@ export default function Home() {
       id: 2,
       title: 'Collab Exclusiva',
       description: '+500K engajamento',
-      gradient: 'from-red-300 to-red-200',
+      gradient: 'from-red-500 to-orange-500',
       views: '850K',
     },
     {
       id: 3,
       title: 'Série Premium',
       description: '+2M visualizações',
-      gradient: 'from-rose-300 to-red-200',
+      gradient: 'from-rose-500 to-red-500',
       views: '2.1M',
     },
     {
       id: 4,
       title: 'Conteúdo Exclusivo',
       description: '+300K seguidores',
-      gradient: 'from-red-400 to-rose-300',
+      gradient: 'from-red-700 to-red-500',
       views: '950K',
     },
   ];
@@ -111,7 +111,7 @@ export default function Home() {
     {
       title: 'Campanha Lifestyle',
       desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
-      color: 'from-red-400 to-red-300',
+      color: 'from-red-600 to-rose-600',
       width: 'w-[75vw] sm:w-[50vw] md:w-[35vw]',
       aspect: 'aspect-[4/5]',
       align: 'self-start', // Fica alinhado em cima
@@ -119,7 +119,7 @@ export default function Home() {
     {
       title: 'Vlog em Tóquio',
       desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
-      color: 'from-red-300 to-red-200',
+      color: 'from-red-500 to-orange-500',
       width: 'w-[85vw] sm:w-[60vw] md:w-[45vw]',
       aspect: 'aspect-video',
       align: 'self-end', // Fica alinhado embaixo
@@ -127,7 +127,7 @@ export default function Home() {
     {
       title: 'Lançamento Podcast',
       desc: 'Cenário e identidade visual do projeto gravado em estúdio.',
-      color: 'from-rose-300 to-red-200',
+      color: 'from-rose-600 to-red-500',
       width: 'w-[60vw] sm:w-[40vw] md:w-[25vw]',
       aspect: 'aspect-[9/16]', // Formato Tiktok/Reels
       align: 'self-center', // Fica centralizado
@@ -135,7 +135,7 @@ export default function Home() {
     {
       title: 'Design de Sneaker',
       desc: 'Collab exclusiva com design próprio que esgotou em horas.',
-      color: 'from-red-400 to-rose-300',
+      color: 'from-red-700 to-red-600',
       width: 'w-[80vw] sm:w-[55vw] md:w-[40vw]',
       aspect: 'aspect-square',
       align: 'self-start', // Fica em cima
@@ -143,7 +143,7 @@ export default function Home() {
     {
       title: 'Bastidores de Festival',
       desc: 'Cobertura completa de 3 dias do maior evento de música.',
-      color: 'from-red-300 to-rose-200',
+      color: 'from-orange-600 to-red-500',
       width: 'w-[85vw] sm:w-[65vw] md:w-[50vw]',
       aspect: 'aspect-[16/10]',
       align: 'self-end', // Fica embaixo
@@ -151,7 +151,7 @@ export default function Home() {
     {
       title: 'Campanha Lifestyle',
       desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
-      color: 'from-red-400 to-red-300',
+      color: 'from-red-600 to-rose-500',
       width: 'w-[75vw] sm:w-[50vw] md:w-[35vw]',
       aspect: 'aspect-[4/5]',
       align: 'self-start', // Fica alinhado em cima
@@ -159,7 +159,7 @@ export default function Home() {
     {
       title: 'Vlog em Tóquio',
       desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
-      color: 'from-red-300 to-red-200',
+      color: 'from-red-500 to-orange-600',
       width: 'w-[85vw] sm:w-[60vw] md:w-[45vw]',
       aspect: 'aspect-video',
       align: 'self-end', // Fica alinhado embaixo
@@ -179,17 +179,17 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated Background Elements */}
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-red-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+          className="absolute top-20 left-10 w-72 h-72 bg-red-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
           animate={{ y: [0, 50, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute top-40 right-10 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+          className="absolute top-40 right-10 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
           animate={{ y: [0, -50, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute -bottom-8 left-1/2 w-72 h-72 bg-rose-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+          className="absolute -bottom-8 left-1/2 w-72 h-72 bg-rose-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
           animate={{ y: [0, 50, 0] }}
           transition={{ duration: 10, repeat: Infinity, delay: 2 }}
         />
@@ -203,7 +203,7 @@ export default function Home() {
           style={{ scale: heroScale, opacity: heroOpacity, y: heroY }}
         >
           <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-block px-4 py-2 bg-red-400/10 border border-red-400/30 rounded-full text-red-300 text-sm font-medium">
+            <span className="inline-block px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full text-red-400 text-sm font-medium">
               ✨ O MELHOR CRIADOR DE CONTEÚDO
             </span>
           </motion.div>
@@ -219,7 +219,7 @@ export default function Home() {
           <div className="overflow-hidden mb-6">
             <motion.h1
               variants={revealVariants}
-              className="text-6xl md:text-8xl lg:text-[10rem] font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200"
+              className="text-6xl md:text-8xl lg:text-[10rem] font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-600"
             >
               Bola
             </motion.h1>
@@ -239,14 +239,14 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-red-400 to-red-300 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-red-300/50 transition-all"
+              className="px-8 py-4 bg-gradient-to-r from-red-600 to-rose-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-red-500/50 transition-all"
             >
               Ver Trabalhos <ArrowRight size={20} />
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-gray-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:border-red-400 hover:shadow-lg hover:shadow-red-400/20 transition-all"
+              className="px-8 py-4 border-2 border-gray-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:border-red-500 hover:shadow-lg hover:shadow-red-500/20 transition-all"
             >
               <Play size={20} /> Reel Destacado
             </motion.button>
@@ -258,9 +258,9 @@ export default function Home() {
             animate="float"
             className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
           >
-            <div className="w-6 h-10 border-2 border-red-400 rounded-full flex items-start justify-center p-2">
+            <div className="w-6 h-10 border-2 border-red-500 rounded-full flex items-start justify-center p-2">
               <motion.div
-                className="w-1 h-2 bg-red-400 rounded-full"
+                className="w-1 h-2 bg-red-500 rounded-full"
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               />
@@ -270,7 +270,7 @@ export default function Home() {
       </section>
 
       {/* Infinite Marquee Section */}
-      <section className="relative w-full py-6 bg-red-300 overflow-hidden transform -skew-y-2 z-20 shadow-2xl shadow-red-300/20 flex items-center">
+      <section className="relative w-full py-6 bg-red-600 overflow-hidden transform -skew-y-2 z-20 shadow-2xl shadow-red-500/20 flex items-center">
         <motion.div
           className="flex whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }}
@@ -296,7 +296,7 @@ export default function Home() {
         <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden py-10 md:py-20">
           <div className="px-4 md:px-8 max-w-7xl w-full mx-auto mb-10 shrink-0">
             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight">
-              Meus <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200">Bastidores</span>
+              Meus <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-rose-600">Bastidores</span>
             </h2>
             <p className="text-gray-400 text-lg mt-2">Role para baixo para explorar meus projetos de perto</p>
           </div>
@@ -338,7 +338,7 @@ export default function Home() {
           className="mb-16"
         >
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200">Trabalhos em Destaque</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Trabalhos em Destaque</span>
           </h2>
           <p className="text-gray-400 text-lg">
             Veja alguns dos meus conteúdos mais virais e impactantes
@@ -356,7 +356,7 @@ export default function Home() {
             <motion.div
               key={project.id}
               variants={itemVariants}
-              whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(248, 113, 113, 0.2)' }}
+              whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(239, 68, 68, 0.2)' }}
               className={`group bg-gradient-to-br ${project.gradient} p-1 rounded-xl overflow-hidden cursor-pointer`}
             >
               <div className="bg-slate-950 rounded-lg p-6 h-full flex flex-col justify-between hover:bg-slate-900 transition-colors">
@@ -388,7 +388,7 @@ export default function Home() {
                   <p className="text-gray-400 text-sm mb-2">{project.description}</p>
                 </div>
                 <div className="flex items-baseline gap-2 pt-4 border-t border-gray-700">
-                  <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-300">
+                  <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
                     {project.views}
                   </span>
                   <span className="text-gray-500 text-xs">visualizações</span>
@@ -418,7 +418,7 @@ export default function Home() {
               className="text-center"
             >
               <motion.div
-                className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-300 mb-2"
+                className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 mb-2"
               >
                 {stat.number}
               </motion.div>
@@ -439,12 +439,12 @@ export default function Home() {
           >
             <div className="space-y-4">
               <motion.div
-                className="inline-block px-4 py-2 bg-red-400/10 border border-red-400/30 rounded-full text-red-300 text-sm font-medium"
+                className="inline-block px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full text-red-400 text-sm font-medium"
               >
                 ✨ SOBRE MIM
               </motion.div>
               <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight">
-                Criador de <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200">Conteúdo</span>
+                Criador de <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Conteúdo</span>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed">
                 Com mais de 2 anos de experiência criando conteúdo viral, especializado em reels, shorts e
@@ -453,7 +453,7 @@ export default function Home() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="mt-6 px-6 py-3 bg-gradient-to-r from-red-400 to-red-300 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-300/50 transition-all"
+                className="mt-6 px-6 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all"
               >
                 Saber Mais
               </motion.button>
@@ -467,11 +467,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative"
           >
-              <div className="w-full aspect-square bg-gradient-to-br from-red-400/20 to-red-300/20 rounded-2xl border border-red-400/20 flex items-center justify-center overflow-hidden">
+              <div className="w-full aspect-square bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-2xl border border-red-500/20 flex items-center justify-center overflow-hidden">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                  className="absolute inset-0 bg-gradient-to-r from-red-400 via-red-300 to-red-200 opacity-20 blur-3xl"
+                  className="absolute inset-0 bg-gradient-to-r from-red-700 via-red-500 to-orange-500 opacity-20 blur-3xl"
               />
               <motion.div
                 variants={floatingVariants}
@@ -494,9 +494,9 @@ export default function Home() {
           viewport={{ once: true }}
           className="bg-gradient-to-r from-slate-900/50 to-slate-800/50 border border-slate-700/50 rounded-3xl p-12 md:p-20 text-center backdrop-blur relative overflow-hidden"
         >
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-400 via-red-300 to-red-200" />
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-red-500 to-rose-600" />
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
-            Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200">Collab?</span>
+            Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">Collab?</span>
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
             Estou sempre aberto para colaborações, parcerias e novos projetos. Vamos criar algo incrível juntos!
@@ -506,14 +506,14 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-red-400 to-red-300 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-300/50 transition-all"
+              className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all"
             >
               Enviar Email
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-gray-600 text-white rounded-lg font-semibold hover:border-red-400 hover:shadow-lg hover:shadow-red-300/20 transition-all"
+              className="px-8 py-4 border-2 border-gray-600 text-white rounded-lg font-semibold hover:border-red-500 hover:shadow-lg hover:shadow-red-500/20 transition-all"
             >
               WhatsApp
             </motion.button>
@@ -527,7 +527,7 @@ export default function Home() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 10 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-gradient-to-br from-red-300 to-red-400 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-300/50 transition-all"
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-500/50 transition-all"
             >
               <FaInstagram size={24} />
             </motion.a>
@@ -537,7 +537,7 @@ export default function Home() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 10 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-gradient-to-br from-rose-300 to-red-300 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-300/50 transition-all"
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-500/50 transition-all"
             >
               <FaTwitter size={24} />
             </motion.a>
@@ -547,7 +547,7 @@ export default function Home() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 10 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-red-400 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-300/50 transition-all"
+              className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-500/50 transition-all"
             >
               <FaYoutube size={24} />
             </motion.a>
@@ -557,7 +557,7 @@ export default function Home() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 10 }}
               whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-gradient-to-br from-red-200 to-red-300 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-300/50 transition-all"
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-500/50 transition-all"
             >
               <FaTwitch size={24} />
             </motion.a>
