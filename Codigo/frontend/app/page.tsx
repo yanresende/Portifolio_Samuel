@@ -1,8 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle } from 'lucide-react';
 import { FaInstagram, FaTwitter, FaYoutube, FaTwitch } from 'react-icons/fa';
 
 export default function Home() {
@@ -82,7 +83,7 @@ export default function Home() {
       description: '+1M visualizações',
       gradient: 'from-red-600 to-rose-600',
       views: '1.2M',
-      youtubeId: 'L8eRzOYhLuw', // ID do vídeo do YouTube (ex: o que vem depois do v=)
+      youtubeId: 'ZmCopOVz6xo',
     },
     {
       id: 2,
@@ -90,6 +91,7 @@ export default function Home() {
       description: '+500K engajamento',
       gradient: 'from-red-500 to-orange-500',
       views: '850K',
+      instagramId: 'DRxA8SPgEpi',
     },
     {
       id: 3,
@@ -97,6 +99,7 @@ export default function Home() {
       description: '+2M visualizações',
       gradient: 'from-rose-500 to-red-500',
       views: '2.1M',
+      youtubeId: 'cenzvPCBXOQ',
     },
     {
       id: 4,
@@ -104,6 +107,7 @@ export default function Home() {
       description: '+300K seguidores',
       gradient: 'from-red-700 to-red-500',
       views: '950K',
+      instagramId: 'DWM-s-_gLXr',
     },
   ];
 
@@ -171,6 +175,39 @@ export default function Home() {
     { number: '450K', label: 'Seguidores' },
     { number: '98', label: 'Conteúdos' },
     { number: '12M', label: 'Engajamento' },
+  ];
+
+  const brands = [
+    { name: 'TWITCH', logo: '/brands/twitch.svg' },
+    { name: 'NIKE', logo: '/brands/nike.svg' },
+    { name: 'RED BULL', logo: '/brands/redbull.svg' },
+    { name: 'Trexx', logo: '/brands/Trexx_logo.png' },
+    { name: 'ADIDAS', logo: '/brands/adidas.svg' },
+    { name: 'LOGITECH', logo: '/brands/logitech.svg' },
+    { name: 'ATLÉTICO MINEIRO', logo: '/brands/Atletico_mineiro_galo.png' },
+    { name: 'RAZER', logo: '/brands/razer.svg' },
+  ];
+  // Duplicamos a lista para o efeito de "scroll infinito" ser contínuo e sem quebras
+  const infiniteBrands = [...brands, ...brands];
+
+  const services = [
+    { title: 'Publis', desc: 'Vídeos autênticos que convertem e geram desejo para a sua marca.', icon: <Video className="w-8 h-8 mb-4 text-red-500" />, span: 'md:col-span-2 md:row-span-2', gradient: 'from-red-600/20 to-orange-600/20' },
+    { title: 'Cobertura de Eventos', desc: 'Vlogs e bastidores mostrando a energia real do evento.', icon: <Camera className="w-8 h-8 mb-4 text-rose-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-rose-600/20 to-pink-600/20' },
+    { title: 'Host de Lives', desc: 'Apresentação dinâmica para reter a atenção do público.', icon: <Mic className="w-8 h-8 mb-4 text-orange-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-orange-600/20 to-amber-600/20' },
+  ];
+
+  const setupItems = [
+    { id: 1, name: 'Sony A7IV', desc: 'Câmera principal para reels e vlogs em 4K.', icon: <Camera size={32} /> },
+    { id: 2, name: 'Shure SM7B', desc: 'Microfone de estúdio para voz limpa e profunda.', icon: <Mic size={32} /> },
+    { id: 3, name: 'PC High-End', desc: 'RTX 4090 + i9 para renderizações e lives.', icon: <Monitor size={32} /> },
+    { id: 4, name: 'S25 Ultra', desc: 'Para conteúdos rápidos, stories.', icon: <Smartphone size={32} /> },
+  ];
+
+  const testimonials = [
+    { id: 1, name: '@fã_clube1', comment: 'Mano, a qualidade das tuas edições tá absurda! Inspiração total 🔥', likes: '15.2K', time: '2h' },
+    { id: 2, name: '@marca_parceira', comment: 'O engajamento dessa campanha bateu todos os nossos recordes. Samuel entregou tudo!', likes: '4.8K', time: '1d' },
+    { id: 3, name: '@editor_pro', comment: 'Qual câmera você usou nesse take? As cores tão perfeitas demais 🎬', likes: '890', time: '5h' },
+    { id: 4, name: '@seguidor_diario', comment: 'Acompanho desde o começo, evolução surreal irmão! Pra cima 🚀', likes: '12.4K', time: '3d' },
   ];
 
   return (
@@ -256,7 +293,7 @@ export default function Home() {
           <motion.div
             variants={floatingVariants}
             animate="float"
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+            className="mt-16 flex justify-center w-full"
           >
             <div className="w-6 h-10 border-2 border-red-500 rounded-full flex items-start justify-center p-2">
               <motion.div
@@ -267,6 +304,41 @@ export default function Home() {
             </div>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* Brands Logo Wall */}
+      <section className="py-16 border-y border-white/5 bg-black/50 overflow-hidden relative flex flex-col items-center">
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-white/50 text-sm md:text-base uppercase tracking-widest font-semibold mb-10 text-center"
+        >
+          Marcas que já trabalhei
+        </motion.h3>
+        <div className="relative w-full flex items-center">
+          <div className="absolute left-0 w-16 md:w-32 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 w-16 md:w-32 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+          <motion.div
+            className="flex gap-16 md:gap-24 items-center whitespace-nowrap w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+          >
+            {infiniteBrands.map((brand, i) => (
+              <div key={i} className="flex flex-col items-center gap-4 text-white/20 hover:text-white/80 transition-colors duration-300 cursor-default group">
+                <div className="relative h-10 w-24 transform group-hover:scale-110 transition-transform duration-300">
+                  <Image
+                    src={brand.logo}
+                    alt={`${brand.name} logo`}
+                    fill
+                    className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+                <span className="text-2xl md:text-4xl font-black tracking-tight">{brand.name}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </section>
 
       {/* Infinite Marquee Section */}
@@ -289,6 +361,34 @@ export default function Home() {
             </div>
           ))}
         </motion.div>
+      </section>
+
+      {/* Bento Grid - Serviços */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants} className="mb-16">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
+            O Que Eu <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Faço</span>
+          </h2>
+          <p className="text-gray-400 text-lg">Soluções criativas para marcas e comunidade.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+          {services.map((service, i) => (
+            <motion.div
+              key={i}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              className={`relative overflow-hidden rounded-3xl p-8 flex flex-col justify-end group bg-gradient-to-br border border-white/5 ${service.gradient} ${service.span}`}
+            >
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+              <div className="relative z-10">
+                {service.icon}
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{service.title}</h3>
+                <p className="text-gray-300">{service.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* Projetos Horizontais Dinâmicos (Scroll) */}
@@ -370,6 +470,18 @@ export default function Home() {
                       allowFullScreen
                     ></iframe>
                   </div>
+              ) : project.instagramId ? (
+                <div className="w-full aspect-[4/5] bg-black rounded-md mb-6 overflow-hidden relative group-hover:shadow-lg transition-all z-10">
+                  <iframe
+                    className="w-full h-full pointer-events-auto bg-white"
+                    src={`https://www.instagram.com/p/${project.instagramId}/embed`}
+                    title={project.title}
+                    frameBorder="0"
+                    scrolling="no"
+                    allowTransparency={true}
+                    allow="encrypted-media"
+                  ></iframe>
+                </div>
                 ) : (
                   <div className="w-full aspect-video bg-black rounded-md mb-6 overflow-hidden relative group-hover:shadow-lg transition-all">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"><Play className="text-white w-8 h-8"/></div>
@@ -399,6 +511,35 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Arsenal / Setup Parallax */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
+            Meu <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-500">Arsenal</span>
+          </h2>
+          <p className="text-gray-400 text-lg">O equipamento por trás da magia.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {setupItems.map((item, i) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center hover:bg-slate-800/50 hover:border-red-500/30 transition-colors"
+            >
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500/20 to-rose-500/20 flex items-center justify-center text-red-500 mb-6">
+                {item.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">{item.name}</h3>
+              <p className="text-gray-400 text-sm">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
         <motion.div
@@ -426,6 +567,42 @@ export default function Home() {
             </motion.div>
           ))}
         </motion.div>
+      </section>
+
+      {/* Community / Testimonials */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full overflow-hidden">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
+            Voz da <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Comunidade</span>
+          </h2>
+          <p className="text-gray-400 text-lg">O impacto real gerado a cada postagem.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.map((test, i) => (
+            <motion.div
+              key={test.id}
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4 + (i % 3), repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
+              className="bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-3xl border border-white/5 shadow-xl hover:border-red-500/30 transition-colors"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white font-bold shrink-0">
+                  {test.name.charAt(1).toUpperCase()}
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-white leading-tight">{test.name}</p>
+                  <p className="text-xs text-gray-500">{test.time}</p>
+                </div>
+              </div>
+              <p className="text-gray-300 text-sm mb-6 leading-relaxed">"{test.comment}"</p>
+              <div className="flex items-center justify-between text-xs text-gray-500 font-medium border-t border-white/5 pt-4">
+                <span className="flex items-center gap-1.5"><Heart size={14} className="text-red-500" /> {test.likes}</span>
+                <span className="flex items-center gap-1.5 hover:text-white cursor-pointer transition-colors"><MessageCircle size={14} /> Responder</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* About Section */}
@@ -522,7 +699,7 @@ export default function Home() {
           {/* Social Links */}
           <div className="flex justify-center gap-6 pt-8 border-t border-gray-700">
             <motion.a
-              href="https://instagram.com/seuperfil"
+              href="https://www.instagram.com/samuelbola_/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 10 }}
@@ -542,7 +719,7 @@ export default function Home() {
               <FaTwitter size={24} />
             </motion.a>
             <motion.a
-              href="https://youtube.com/@seucanal"
+              href="https://www.youtube.com/@samuelbolaa"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 10 }}
