@@ -568,8 +568,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-gray-800 py-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto text-center text-gray-400">
-          <p className="mb-2">© 2024 Samuel. Todos os direitos reservados.</p>
-          <p className="text-sm">Feito com ❤️ e muita criatividade</p>
+          <p className="mb-2">© 2026 Samuel. Todos os direitos reservados.</p>
         </div>
       </footer>
     </main>
