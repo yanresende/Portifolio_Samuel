@@ -1,0 +1,577 @@
+'use client';
+
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { ArrowRight, Play } from 'lucide-react';
+import { FaInstagram, FaTwitter, FaYoutube, FaTwitch } from 'react-icons/fa';
+
+export default function Home() {
+  // Hooks para o efeito de Parallax e Zoom Out no scroll
+  const { scrollY } = useScroll();
+  const heroScale = useTransform(scrollY, [0, 500], [1, 0.75]); // Vai de 100% a 75% de tamanho
+  const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]); // Vai desaparecendo suavemente
+  const heroY = useTransform(scrollY, [0, 500], [0, 150]); // Desce levemente para dar efeito de profundidade
+
+  // Hooks para a timeline horizontal
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: scrollYProgressTimeline } = useScroll({
+    target: carouselRef,
+    offset: ["start start", "end end"] // Mapeia exatamente o início e o fim da seção de 300vh
+  });
+
+  // Adiciona uma física elástica (smooth) para acabar com movimentos bruscos
+  const smoothProgress = useSpring(scrollYProgressTimeline, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  // Usamos uma função anônima para montar a string calc() perfeitamente.
+  // Isso resolve o bug do Framer Motion ao tentar animar strings de formatos diferentes.
+  const xTimeline = useTransform(smoothProgress, (p) => `calc(${p * -100}% + ${p * 100}vw)`);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1], // Curva "snappy" estilo site premium
+      },
+    },
+  };
+
+  const revealVariants = {
+    hidden: { y: '100%' },
+    visible: {
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
+  const floatingVariants = {
+    float: {
+      y: [0, -20, 0],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
+  const projects = [
+    {
+      id: 1,
+      title: 'Projeto Viral #1',
+      description: '+1M visualizações',
+      gradient: 'from-red-400 to-red-300',
+      views: '1.2M',
+      youtubeId: 'L8eRzOYhLuw', // ID do vídeo do YouTube (ex: o que vem depois do v=)
+    },
+    {
+      id: 2,
+      title: 'Collab Exclusiva',
+      description: '+500K engajamento',
+      gradient: 'from-red-300 to-red-200',
+      views: '850K',
+    },
+    {
+      id: 3,
+      title: 'Série Premium',
+      description: '+2M visualizações',
+      gradient: 'from-rose-300 to-red-200',
+      views: '2.1M',
+    },
+    {
+      id: 4,
+      title: 'Conteúdo Exclusivo',
+      description: '+300K seguidores',
+      gradient: 'from-red-400 to-rose-300',
+      views: '950K',
+    },
+  ];
+
+  const workHistoryData = [
+    {
+      title: 'Campanha Lifestyle',
+      desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
+      color: 'from-red-400 to-red-300',
+      width: 'w-[75vw] sm:w-[50vw] md:w-[35vw]',
+      aspect: 'aspect-[4/5]',
+      align: 'self-start', // Fica alinhado em cima
+    },
+    {
+      title: 'Vlog em Tóquio',
+      desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
+      color: 'from-red-300 to-red-200',
+      width: 'w-[85vw] sm:w-[60vw] md:w-[45vw]',
+      aspect: 'aspect-video',
+      align: 'self-end', // Fica alinhado embaixo
+    },
+    {
+      title: 'Lançamento Podcast',
+      desc: 'Cenário e identidade visual do projeto gravado em estúdio.',
+      color: 'from-rose-300 to-red-200',
+      width: 'w-[60vw] sm:w-[40vw] md:w-[25vw]',
+      aspect: 'aspect-[9/16]', // Formato Tiktok/Reels
+      align: 'self-center', // Fica centralizado
+    },
+    {
+      title: 'Design de Sneaker',
+      desc: 'Collab exclusiva com design próprio que esgotou em horas.',
+      color: 'from-red-400 to-rose-300',
+      width: 'w-[80vw] sm:w-[55vw] md:w-[40vw]',
+      aspect: 'aspect-square',
+      align: 'self-start', // Fica em cima
+    },
+    {
+      title: 'Bastidores de Festival',
+      desc: 'Cobertura completa de 3 dias do maior evento de música.',
+      color: 'from-red-300 to-rose-200',
+      width: 'w-[85vw] sm:w-[65vw] md:w-[50vw]',
+      aspect: 'aspect-[16/10]',
+      align: 'self-end', // Fica embaixo
+    },
+    {
+      title: 'Campanha Lifestyle',
+      desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
+      color: 'from-red-400 to-red-300',
+      width: 'w-[75vw] sm:w-[50vw] md:w-[35vw]',
+      aspect: 'aspect-[4/5]',
+      align: 'self-start', // Fica alinhado em cima
+    },
+    {
+      title: 'Vlog em Tóquio',
+      desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
+      color: 'from-red-300 to-red-200',
+      width: 'w-[85vw] sm:w-[60vw] md:w-[45vw]',
+      aspect: 'aspect-video',
+      align: 'self-end', // Fica alinhado embaixo
+    },
+  ];
+
+  const stats = [
+    { number: '2.5M', label: 'Total Visualizações' },
+    { number: '450K', label: 'Seguidores' },
+    { number: '98', label: 'Conteúdos' },
+    { number: '12M', label: 'Engajamento' },
+  ];
+
+  return (
+    <main className="w-full bg-gradient-to-b from-black via-slate-900 to-black">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Animated Background Elements */}
+        <motion.div
+          className="absolute top-20 left-10 w-72 h-72 bg-red-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+          animate={{ y: [0, 50, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute top-40 right-10 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+          animate={{ y: [0, -50, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute -bottom-8 left-1/2 w-72 h-72 bg-rose-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+          animate={{ y: [0, 50, 0] }}
+          transition={{ duration: 10, repeat: Infinity, delay: 2 }}
+        />
+
+        {/* Content */}
+        <motion.div
+          className="relative z-10 text-center px-4 md:px-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          style={{ scale: heroScale, opacity: heroOpacity, y: heroY }}
+        >
+          <motion.div variants={itemVariants} className="mb-6">
+            <span className="inline-block px-4 py-2 bg-red-400/10 border border-red-400/30 rounded-full text-red-300 text-sm font-medium">
+              ✨ O MELHOR CRIADOR DE CONTEÚDO
+            </span>
+          </motion.div>
+
+          <div className="overflow-hidden mb-2">
+            <motion.h1
+              variants={revealVariants}
+              className="text-6xl md:text-8xl lg:text-[10rem] font-black uppercase tracking-tighter leading-none text-white"
+            >
+              Samuel
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden mb-6">
+            <motion.h1
+              variants={revealVariants}
+              className="text-6xl md:text-8xl lg:text-[10rem] font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200"
+            >
+              Bola
+            </motion.h1>
+          </div>
+
+          <motion.p
+            variants={itemVariants}
+            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto"
+          >
+            Conteúdo viral, autêntico e inspirador. Acompanhe minhas criações impactantes!
+          </motion.p>
+
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-gradient-to-r from-red-400 to-red-300 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-red-300/50 transition-all"
+            >
+              Ver Trabalhos <ArrowRight size={20} />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 border-2 border-gray-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:border-red-400 hover:shadow-lg hover:shadow-red-400/20 transition-all"
+            >
+              <Play size={20} /> Reel Destacado
+            </motion.button>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            variants={floatingVariants}
+            animate="float"
+            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          >
+            <div className="w-6 h-10 border-2 border-red-400 rounded-full flex items-start justify-center p-2">
+              <motion.div
+                className="w-1 h-2 bg-red-400 rounded-full"
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Infinite Marquee Section */}
+      <section className="relative w-full py-6 bg-red-300 overflow-hidden transform -skew-y-2 z-20 shadow-2xl shadow-red-300/20 flex items-center">
+        <motion.div
+          className="flex whitespace-nowrap"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
+        >
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex gap-8 px-4 text-black font-black text-4xl md:text-5xl uppercase tracking-widest items-center">
+              <span>CRIADOR DE CONTEÚDO</span>
+              <span>•</span>
+              <span>VIRAL</span>
+              <span>•</span>
+              <span>LIFESTYLE</span>
+              <span>•</span>
+              <span>GAMING</span>
+              <span>•</span>
+            </div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Projetos Horizontais Dinâmicos (Scroll) */}
+      <section ref={carouselRef} className="relative h-[300vh] bg-black">
+        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden py-10 md:py-20">
+          <div className="px-4 md:px-8 max-w-7xl w-full mx-auto mb-10 shrink-0">
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight">
+              Meus <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200">Bastidores</span>
+            </h2>
+            <p className="text-gray-400 text-lg mt-2">Role para baixo para explorar meus projetos de perto</p>
+          </div>
+
+          <motion.div style={{ x: xTimeline }} className="flex gap-8 md:gap-16 px-4 md:px-8 w-max h-[65vh] md:h-[60vh] items-center">
+            {workHistoryData.map((item, index) => (
+              <div key={index} className={`${item.width} ${item.align} flex flex-col gap-4 md:gap-6`}>
+                <motion.div 
+                  whileHover={{ scale: 0.98 }}
+                  className={`w-full ${item.aspect} rounded-2xl bg-gradient-to-br ${item.color} shadow-2xl relative overflow-hidden group cursor-pointer`}
+                >
+                  {/* Dica: Quando for usar imagens reais, insira a tag <Image /> do Next.js aqui e remova a div de texto provisória */}
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                  
+                  <div className="absolute inset-0 flex items-center justify-center text-white/20 font-black text-3xl md:text-5xl uppercase tracking-widest z-0 mix-blend-overlay text-center p-4 leading-none">
+                    {item.title}
+                  </div>
+                </motion.div>
+                
+                <div className="px-2">
+                  <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">{item.title}</h4>
+                  <p className="text-gray-400 text-base md:text-lg leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+            {/* Div invisível para dar um "respiro" no final do scroll */}
+            <div className="w-[10vw] shrink-0" />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Featured Works Section */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full mt-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200">Trabalhos em Destaque</span>
+          </h2>
+          <p className="text-gray-400 text-lg">
+            Veja alguns dos meus conteúdos mais virais e impactantes
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.id}
+              variants={itemVariants}
+              whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(248, 113, 113, 0.2)' }}
+              className={`group bg-gradient-to-br ${project.gradient} p-1 rounded-xl overflow-hidden cursor-pointer`}
+            >
+              <div className="bg-slate-950 rounded-lg p-6 h-full flex flex-col justify-between hover:bg-slate-900 transition-colors">
+                {project.youtubeId ? (
+                  <div className="w-full aspect-video bg-black rounded-md mb-6 overflow-hidden relative group-hover:shadow-lg transition-all z-10">
+                    <iframe
+                      className="w-full h-full pointer-events-auto"
+                      src={`https://www.youtube.com/embed/${project.youtubeId}?modestbranding=1&rel=0`}
+                      title={project.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                ) : (
+                  <div className="w-full aspect-video bg-black rounded-md mb-6 overflow-hidden relative group-hover:shadow-lg transition-all">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"><Play className="text-white w-8 h-8"/></div>
+                  </div>
+                )}
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-white font-bold text-lg">{project.title}</h3>
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: -90 }}
+                      className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center"
+                    >
+                      <ArrowRight size={16} className="text-gray-300" />
+                    </motion.div>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-2">{project.description}</p>
+                </div>
+                <div className="flex items-baseline gap-2 pt-4 border-t border-gray-700">
+                  <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-300">
+                    {project.views}
+                  </span>
+                  <span className="text-gray-500 text-xs">visualizações</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          {stats.map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <motion.div
+                className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-300 mb-2"
+              >
+                {stat.number}
+              </motion.div>
+              <p className="text-gray-400 text-sm md:text-base">{stat.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="space-y-4">
+              <motion.div
+                className="inline-block px-4 py-2 bg-red-400/10 border border-red-400/30 rounded-full text-red-300 text-sm font-medium"
+              >
+                ✨ SOBRE MIM
+              </motion.div>
+              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight">
+                Criador de <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200">Conteúdo</span>
+              </h2>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                Com mais de 2 anos de experiência criando conteúdo viral, especializado em reels, shorts e
+                transmissões ao vivo. Meu objetivo é criar conteúdo autêntico que inspire e divirta minha comunidade.
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-6 px-6 py-3 bg-gradient-to-r from-red-400 to-red-300 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-300/50 transition-all"
+              >
+                Saber Mais
+              </motion.button>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+              <div className="w-full aspect-square bg-gradient-to-br from-red-400/20 to-red-300/20 rounded-2xl border border-red-400/20 flex items-center justify-center overflow-hidden">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                  className="absolute inset-0 bg-gradient-to-r from-red-400 via-red-300 to-red-200 opacity-20 blur-3xl"
+              />
+              <motion.div
+                variants={floatingVariants}
+                animate="float"
+                className="relative text-6xl"
+              >
+                📱
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-slate-900/50 to-slate-800/50 border border-slate-700/50 rounded-3xl p-12 md:p-20 text-center backdrop-blur relative overflow-hidden"
+        >
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-400 via-red-300 to-red-200" />
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
+            Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-300 to-red-200">Collab?</span>
+          </h2>
+          <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+            Estou sempre aberto para colaborações, parcerias e novos projetos. Vamos criar algo incrível juntos!
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-gradient-to-r from-red-400 to-red-300 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-300/50 transition-all"
+            >
+              Enviar Email
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 border-2 border-gray-600 text-white rounded-lg font-semibold hover:border-red-400 hover:shadow-lg hover:shadow-red-300/20 transition-all"
+            >
+              WhatsApp
+            </motion.button>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex justify-center gap-6 pt-8 border-t border-gray-700">
+            <motion.a
+              href="https://instagram.com/seuperfil"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 10 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-red-300 to-red-400 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-300/50 transition-all"
+            >
+              <FaInstagram size={24} />
+            </motion.a>
+            <motion.a
+              href="https://twitter.com/seuperfil"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 10 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-rose-300 to-red-300 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-300/50 transition-all"
+            >
+              <FaTwitter size={24} />
+            </motion.a>
+            <motion.a
+              href="https://youtube.com/@seucanal"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 10 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-12 h-12 rounded-full bg-red-400 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-300/50 transition-all"
+            >
+              <FaYoutube size={24} />
+            </motion.a>
+            <motion.a
+              href="https://twitch.tv/seucanal"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 10 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-red-200 to-red-300 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-300/50 transition-all"
+            >
+              <FaTwitch size={24} />
+            </motion.a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-800 py-12 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto text-center text-gray-400">
+          <p className="mb-2">© 2024 Samuel. Todos os direitos reservados.</p>
+          <p className="text-sm">Feito com ❤️ e muita criatividade</p>
+        </div>
+      </footer>
+    </main>
+  );
+}
