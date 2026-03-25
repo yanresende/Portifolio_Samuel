@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import { FaInstagram, FaTwitter, FaYoutube, FaTwitch } from 'react-icons/fa';
 
@@ -30,7 +30,7 @@ export default function Home() {
   // Isso resolve o bug do Framer Motion ao tentar animar strings de formatos diferentes.
   const xTimeline = useTransform(smoothProgress, (p) => `calc(${p * -100}% + ${p * 100}vw)`);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -41,7 +41,7 @@ export default function Home() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -53,7 +53,7 @@ export default function Home() {
     },
   };
 
-  const revealVariants = {
+  const revealVariants: Variants = {
     hidden: { y: '100%' },
     visible: {
       y: 0,
@@ -64,7 +64,7 @@ export default function Home() {
     },
   };
 
-  const floatingVariants = {
+  const floatingVariants: Variants = {
     float: {
       y: [0, -20, 0],
       transition: {
