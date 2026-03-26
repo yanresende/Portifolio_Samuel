@@ -13,6 +13,11 @@ export default function Home() {
     views: '20.5K+ Views'
   });
 
+  const [instagramData, setInstagramData] = useState({
+    followers: '1.796',
+    views: '152.7K+ Views'
+  });
+
   // Busca os dados do YouTube ao carregar a página
   useEffect(() => {
     async function fetchYoutube() {
@@ -30,6 +35,22 @@ export default function Home() {
       }
     }
     fetchYoutube();
+
+    async function fetchInstagram() {
+      try {
+        const res = await fetch('/api/instagram');
+        const data = await res.json();
+        if (data.followers) {
+          setInstagramData({
+            followers: new Intl.NumberFormat('pt-BR').format(data.followers),
+            views: `${new Intl.NumberFormat('en-US', { notation: "compact", maximumFractionDigits: 1 }).format(data.views)}+ Views`
+          });
+        }
+      } catch (err) {
+        console.error("Erro ao buscar dados do Instagram:", err);
+      }
+    }
+    fetchInstagram();
   }, []);
 
   // Hooks para o efeito de Parallax e Zoom Out no scroll
@@ -228,7 +249,7 @@ export default function Home() {
   ];
 
   const networkStats = [
-    { id: 1, name: 'Instagram', followers: '1.796', metric: '152.7K+ Views', icon: <FaInstagram size={32} />, color: 'from-pink-500 to-purple-600', textColor: 'text-pink-500' },
+    { id: 1, name: 'Instagram', followers: instagramData.followers, metric: instagramData.views, icon: <FaInstagram size={32} />, color: 'from-pink-500 to-purple-600', textColor: 'text-pink-500' },
     { id: 2, name: 'TikTok', followers: '2.840', metric: '167K+ Views', icon: <FaTiktok size={32} />, color: 'from-cyan-500 to-blue-600', textColor: 'text-cyan-500' },
     { id: 3, name: 'YouTube', followers: youtubeData.followers, metric: youtubeData.views, icon: <FaYoutube size={32} />, color: 'from-red-500 to-red-700', textColor: 'text-red-500' },
     { id: 4, name: 'Twitch', followers: '150K+', metric: '100K+ Horas/mês', icon: <FaTwitch size={32} />, color: 'from-purple-500 to-purple-700', textColor: 'text-purple-500' },
