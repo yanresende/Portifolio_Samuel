@@ -3,8 +3,8 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
-import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle } from 'lucide-react';
-import { FaInstagram, FaTwitter, FaYoutube, FaTwitch } from 'react-icons/fa';
+import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle, Ticket } from 'lucide-react';
+import { FaInstagram, FaTwitter, FaYoutube, FaTwitch, FaTiktok } from 'react-icons/fa';
 
 export default function Home() {
   // Hooks para o efeito de Parallax e Zoom Out no scroll
@@ -171,21 +171,27 @@ export default function Home() {
   ];
 
   const stats = [
-    { number: '2.5M', label: 'Total Visualizações' },
-    { number: '450K', label: 'Seguidores' },
-    { number: '98', label: 'Conteúdos' },
-    { number: '12M', label: 'Engajamento' },
+    { number: '340K+', label: 'Total Visualizações' },
+    { number: '11.8K+', label: 'Seguidores' },
+    { number: '79.5K+', label: 'Contas Alcançadas' },
+    { number: '18K+', label: 'Curtidas no TikTok' },
   ];
 
   const brands = [
-    { name: 'TWITCH', logo: '/brands/twitch.svg' },
-    { name: 'NIKE', logo: '/brands/nike.svg' },
-    { name: 'RED BULL', logo: '/brands/redbull.svg' },
+    { name: 'Atlético Mineiro', logo: '/brands/Atletico_mineiro_galo.png' },
+    { name: 'Arena MRV', logo: '/brands/Arena_mrv.png' },
+    { name: 'Ubisoft', logo: '/brands/ubisoft_logo.png' },
+    { name: 'Rainbow Six', logo: '/brands/rainbowsix_logo.jpg' },
+    { name: 'Mastercard', logo: '/brands/Mastercard-logo.svg' },
+    { name: 'KitKat', logo: '/brands/kitkat_logo.png' },
+    { name: 'CBLOL', logo: '/brands/cblol_logo.png' },
+    { name: 'ElHero', logo: '/brands/elhero_logo.jpg' },
+    { name: 'Sesc Geek', logo: '/brands/sescgeek_logo.jpeg' },
+    { name: 'Red Bull', logo: '/brands/redbull_logo.png' },
+    { name: 'Itatiaia', logo: '/brands/itatiaia_logo.png' },
+    { name: 'Lbee', logo: '/brands/lbee_logo.jpg' },
+    { name: 'Buffly', logo: '/brands/buffly_logo.png' },
     { name: 'Trexx', logo: '/brands/Trexx_logo.png' },
-    { name: 'ADIDAS', logo: '/brands/adidas.svg' },
-    { name: 'LOGITECH', logo: '/brands/logitech.svg' },
-    { name: 'ATLÉTICO MINEIRO', logo: '/brands/Atletico_mineiro_galo.png' },
-    { name: 'RAZER', logo: '/brands/razer.svg' },
   ];
   // Duplicamos a lista para o efeito de "scroll infinito" ser contínuo e sem quebras
   const infiniteBrands = [...brands, ...brands];
@@ -196,11 +202,18 @@ export default function Home() {
     { title: 'Host de Lives', desc: 'Apresentação dinâmica para reter a atenção do público.', icon: <Mic className="w-8 h-8 mb-4 text-orange-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-orange-600/20 to-amber-600/20' },
   ];
 
-  const setupItems = [
-    { id: 1, name: 'Sony A7IV', desc: 'Câmera principal para reels e vlogs em 4K.', icon: <Camera size={32} /> },
-    { id: 2, name: 'Shure SM7B', desc: 'Microfone de estúdio para voz limpa e profunda.', icon: <Mic size={32} /> },
-    { id: 3, name: 'PC High-End', desc: 'RTX 4090 + i9 para renderizações e lives.', icon: <Monitor size={32} /> },
-    { id: 4, name: 'S25 Ultra', desc: 'Para conteúdos rápidos, stories.', icon: <Smartphone size={32} /> },
+  const networkStats = [
+    { id: 1, name: 'Instagram', followers: '1.796', metric: '152.7K+ Views', icon: <FaInstagram size={32} />, color: 'from-pink-500 to-purple-600', textColor: 'text-pink-500' },
+    { id: 2, name: 'TikTok', followers: '2.840', metric: '167K+ Views', icon: <FaTiktok size={32} />, color: 'from-cyan-500 to-blue-600', textColor: 'text-cyan-500' },
+    { id: 3, name: 'YouTube', followers: '7.227', metric: '20.5K+ Views', icon: <FaYoutube size={32} />, color: 'from-red-500 to-red-700', textColor: 'text-red-500' },
+    { id: 4, name: 'Twitch', followers: '150K+', metric: '100K+ Horas/mês', icon: <FaTwitch size={32} />, color: 'from-purple-500 to-purple-700', textColor: 'text-purple-500' },
+  ];
+
+  const coupons = [
+    { id: 1, brand: 'Trexx', code: 'SAMUEL10', discount: '10% OFF', link: '#' },
+    { id: 2, brand: 'KitKat', code: 'BOLA15', discount: '15% OFF', link: '#' },
+    { id: 3, brand: 'Arena MRV', code: 'GALO20', discount: '20% OFF em tours', link: '#' },
+    { id: 4, brand: 'ElHero', code: 'SAMUELHERO', discount: 'Frete Grátis', link: '#' },
   ];
 
   const testimonials = [
@@ -511,30 +524,32 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Arsenal / Setup Parallax */}
+      {/* Redes Sociais Metrics */}
       <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
-            Meu <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-500">Arsenal</span>
+            Minhas <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-500">Redes</span>
           </h2>
-          <p className="text-gray-400 text-lg">O equipamento por trás da magia.</p>
+          <p className="text-gray-400 text-lg">O impacto dos meus conteúdos em cada plataforma.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {setupItems.map((item, i) => (
+          {networkStats.map((item, i) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center hover:bg-slate-800/50 hover:border-red-500/30 transition-colors"
+              className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center hover:bg-slate-800/50 hover:border-red-500/30 transition-all relative overflow-hidden group"
             >
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500/20 to-rose-500/20 flex items-center justify-center text-red-500 mb-6">
+              <div className={`absolute -right-4 -top-4 w-24 h-24 bg-gradient-to-br ${item.color} rounded-full blur-2xl opacity-10 group-hover:opacity-30 transition-opacity`} />
+              <div className={`w-16 h-16 rounded-full bg-gradient-to-br from-white/5 to-white/10 flex items-center justify-center ${item.textColor} mb-6 relative z-10 border border-white/10`}>
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">{item.name}</h3>
-              <p className="text-gray-400 text-sm">{item.desc}</p>
+              <h3 className="text-xl font-bold text-white mb-1">{item.name}</h3>
+              <p className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400 mb-2">{item.followers}</p>
+              <p className="text-gray-400 text-sm font-medium">{item.metric}</p>
             </motion.div>
           ))}
         </div>
@@ -567,6 +582,45 @@ export default function Home() {
             </motion.div>
           ))}
         </motion.div>
+      </section>
+
+      {/* Cupons de Parceiros */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
+            Meus <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Cupons</span>
+          </h2>
+          <p className="text-gray-400 text-lg">Aproveite os descontos exclusivos com meus parceiros.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {coupons.map((coupon, i) => (
+            <motion.div
+              key={coupon.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-slate-900 to-black border border-dashed border-red-500/30 rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-red-500/60 transition-colors"
+            >
+              <div className="absolute -right-4 -top-4 w-24 h-24 bg-red-500/10 rounded-full blur-xl group-hover:bg-red-500/20 transition-all" />
+              <Ticket size={24} className="text-red-500 mb-4" />
+              <h3 className="text-2xl font-black text-white mb-1">{coupon.brand}</h3>
+              <p className="text-red-400 font-bold text-xl mb-6">{coupon.discount}</p>
+              <div className="bg-black/50 border border-white/10 rounded-lg px-6 py-3 mb-6 w-full border-dashed">
+                <span className="text-white font-mono tracking-widest text-lg">{coupon.code}</span>
+              </div>
+              <motion.a
+                href={coupon.link}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-sm font-semibold text-white bg-red-600 hover:bg-red-500 px-6 py-3 rounded-full transition-colors w-full uppercase tracking-wider"
+              >
+                Usar Cupom
+              </motion.a>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* Community / Testimonials */}
