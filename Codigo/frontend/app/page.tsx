@@ -1,12 +1,37 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
 import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle, Ticket } from 'lucide-react';
 import { FaInstagram, FaTwitter, FaYoutube, FaTwitch, FaTiktok } from 'react-icons/fa';
 
 export default function Home() {
+  // Estado para armazenar os dados dinâmicos do YouTube
+  const [youtubeData, setYoutubeData] = useState({
+    followers: '7.227',
+    views: '20.5K+ Views'
+  });
+
+  // Busca os dados do YouTube ao carregar a página
+  useEffect(() => {
+    async function fetchYoutube() {
+      try {
+        const res = await fetch('/api/youtube');
+        const data = await res.json();
+        if (data.subscribers) {
+          setYoutubeData({
+            followers: new Intl.NumberFormat('pt-BR').format(data.subscribers),
+            views: `${new Intl.NumberFormat('en-US', { notation: "compact", maximumFractionDigits: 1 }).format(data.views)}+ Views`
+          });
+        }
+      } catch (err) {
+        console.error("Erro ao buscar dados do Youtube:", err);
+      }
+    }
+    fetchYoutube();
+  }, []);
+
   // Hooks para o efeito de Parallax e Zoom Out no scroll
   const { scrollY } = useScroll();
   const heroScale = useTransform(scrollY, [0, 500], [1, 0.75]); // Vai de 100% a 75% de tamanho
@@ -205,7 +230,7 @@ export default function Home() {
   const networkStats = [
     { id: 1, name: 'Instagram', followers: '1.796', metric: '152.7K+ Views', icon: <FaInstagram size={32} />, color: 'from-pink-500 to-purple-600', textColor: 'text-pink-500' },
     { id: 2, name: 'TikTok', followers: '2.840', metric: '167K+ Views', icon: <FaTiktok size={32} />, color: 'from-cyan-500 to-blue-600', textColor: 'text-cyan-500' },
-    { id: 3, name: 'YouTube', followers: '7.227', metric: '20.5K+ Views', icon: <FaYoutube size={32} />, color: 'from-red-500 to-red-700', textColor: 'text-red-500' },
+    { id: 3, name: 'YouTube', followers: youtubeData.followers, metric: youtubeData.views, icon: <FaYoutube size={32} />, color: 'from-red-500 to-red-700', textColor: 'text-red-500' },
     { id: 4, name: 'Twitch', followers: '150K+', metric: '100K+ Horas/mês', icon: <FaTwitch size={32} />, color: 'from-purple-500 to-purple-700', textColor: 'text-purple-500' },
   ];
 
