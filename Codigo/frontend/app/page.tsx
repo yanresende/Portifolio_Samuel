@@ -256,10 +256,10 @@ export default function Home() {
   ];
 
   const coupons = [
-    { id: 1, brand: 'Trexx', code: 'SAMUEL10', discount: '10% OFF', link: '#' },
-    { id: 2, brand: 'KitKat', code: 'BOLA15', discount: '15% OFF', link: '#' },
-    { id: 3, brand: 'Arena MRV', code: 'GALO20', discount: '20% OFF em tours', link: '#' },
-    { id: 4, brand: 'ElHero', code: 'SAMUELHERO', discount: 'Frete Grátis', link: '#' },
+    { id: 1, brand: 'Overclock', code: 'BOLA', discount: '10% OFF', link: 'https://bebaoverclock.com.br/' },
+    { id: 2, brand: 'Somos Resenha', code: 'Bola15', discount: '15% OFF', link: 'https://somosresenha.com.br/' },
+    { id: 3, brand: 'Rainclub', code: 'BOLA', discount: '10% OFF', link: 'https://www.instagram.com/the.rainclub/reels/' },
+    { id: 4, brand: 'No Ping', code: 'bola', discount: '10 Dias Gratis', link: 'https://noping.com/pt' },
   ];
 
   const testimonials = [
