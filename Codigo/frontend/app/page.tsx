@@ -126,34 +126,38 @@ export default function Home() {
     {
       id: 1,
       title: 'Projeto Viral #1',
-      description: '+1M visualizações',
+      description: '+1M visualizações orgânicas',
       gradient: 'from-red-600 to-rose-600',
       views: '1.2M',
       youtubeId: 'ZmCopOVz6xo',
+      span: 'md:col-span-12 lg:col-span-8',
     },
     {
       id: 2,
       title: 'Collab Exclusiva',
-      description: '+500K engajamento',
+      description: 'Engajamento recorde',
       gradient: 'from-red-500 to-orange-500',
       views: '850K',
       instagramId: 'DRxA8SPgEpi',
+      span: 'md:col-span-12 lg:col-span-4',
     },
     {
       id: 3,
       title: 'Série Premium',
-      description: '+2M visualizações',
+      description: 'Produção cinematográfica',
       gradient: 'from-rose-500 to-red-500',
       views: '2.1M',
       youtubeId: 'cenzvPCBXOQ',
+      span: 'md:col-span-12 lg:col-span-6',
     },
     {
       id: 4,
       title: 'Conteúdo Exclusivo',
-      description: '+300K seguidores',
+      description: 'Alta conversão',
       gradient: 'from-red-700 to-red-500',
       views: '950K',
       instagramId: 'DWM-s-_gLXr',
+      span: 'md:col-span-12 lg:col-span-6',
     },
   ];
 
@@ -273,6 +277,20 @@ export default function Home() {
     <main className="w-full bg-gradient-to-b from-black via-slate-900 to-black">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-60"
+          >
+            <source src="/video/Background_video.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
+        </div>
+
         {/* Animated Background Elements */}
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 bg-red-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
@@ -505,7 +523,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -515,24 +533,42 @@ export default function Home() {
             <motion.div
               key={project.id}
               variants={itemVariants}
-              whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(239, 68, 68, 0.2)' }}
-              className={`group bg-gradient-to-br ${project.gradient} p-1 rounded-xl overflow-hidden cursor-pointer`}
+              whileHover={{ y: -8, scale: 1.01 }}
+              className={`group relative p-[1px] rounded-[32px] overflow-hidden cursor-pointer ${project.span}`}
             >
-              <div className="bg-slate-950 rounded-lg p-6 h-full flex flex-col justify-between hover:bg-slate-900 transition-colors">
-                {project.youtubeId ? (
-                  <div className="w-full aspect-video bg-black rounded-md mb-6 overflow-hidden relative group-hover:shadow-lg transition-all z-10">
+              {/* Borda Gradiente Animada */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-40 group-hover:opacity-80 transition-opacity duration-500`} />
+              
+              {/* Conteúdo do Card em Estilo Glassmorphism */}
+              <div className="relative h-full bg-slate-950/80 backdrop-blur-2xl rounded-[31px] p-6 md:p-8 flex flex-col gap-6 hover:bg-slate-900/80 transition-colors duration-500 border border-white/5 group-hover:border-white/10">
+                {/* Header do Card */}
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight mb-1 flex items-center gap-3">
+                      {project.title}
+                      <ArrowRight className="opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-red-500" size={24} />
+                    </h3>
+                    <p className="text-gray-400 font-medium">{project.description}</p>
+                  </div>
+                  <div className="px-4 py-2 rounded-full bg-black/50 border border-white/10 flex items-center gap-2 backdrop-blur-md shrink-0 shadow-lg">
+                    <Play size={14} className="text-red-500" />
+                    <span className="text-white text-sm font-bold">{project.views} views</span>
+                  </div>
+                </div>
+
+                {/* Container de Mídia (iFrames) */}
+                <div className={`relative w-full ${project.youtubeId ? 'aspect-video' : 'aspect-[4/5]'} rounded-2xl overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl group-hover:ring-white/20 transition-all`}>
+                  {project.youtubeId ? (
                     <iframe
-                      className="w-full h-full pointer-events-auto"
+                      className="absolute inset-0 w-full h-full pointer-events-auto"
                       src={`https://www.youtube.com/embed/${project.youtubeId}?modestbranding=1&rel=0`}
                       title={project.title}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
-                  </div>
-              ) : project.instagramId ? (
-                <div className="w-full aspect-[4/5] bg-black rounded-md mb-6 overflow-hidden relative group-hover:shadow-lg transition-all z-10">
+                  ) : project.instagramId ? (
                   <iframe
-                    className="w-full h-full pointer-events-auto bg-white"
+                    className="absolute inset-0 w-full h-full pointer-events-auto bg-white"
                     src={`https://www.instagram.com/p/${project.instagramId}/embed`}
                     title={project.title}
                     frameBorder="0"
@@ -540,29 +576,11 @@ export default function Home() {
                     allowTransparency={true}
                     allow="encrypted-media"
                   ></iframe>
-                </div>
-                ) : (
-                  <div className="w-full aspect-video bg-black rounded-md mb-6 overflow-hidden relative group-hover:shadow-lg transition-all">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"><Play className="text-white w-8 h-8"/></div>
-                  </div>
-                )}
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-white font-bold text-lg">{project.title}</h3>
-                    <motion.div
-                      whileHover={{ scale: 1.2, rotate: -90 }}
-                      className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center"
-                    >
-                      <ArrowRight size={16} className="text-gray-300" />
-                    </motion.div>
-                  </div>
-                  <p className="text-gray-400 text-sm mb-2">{project.description}</p>
-                </div>
-                <div className="flex items-baseline gap-2 pt-4 border-t border-gray-700">
-                  <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
-                    {project.views}
-                  </span>
-                  <span className="text-gray-500 text-xs">visualizações</span>
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Play className="text-white w-8 h-8"/>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
