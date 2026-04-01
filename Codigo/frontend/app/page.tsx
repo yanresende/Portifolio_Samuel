@@ -165,58 +165,37 @@ export default function Home() {
     {
       title: 'Campanha Lifestyle',
       desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
-      color: 'from-red-600 to-rose-600',
-      width: 'w-[75vw] sm:w-[50vw] md:w-[35vw]',
-      aspect: 'aspect-[4/5]',
-      align: 'self-start', // Fica alinhado em cima
+      image: '/projetos/img1.jpg',
     },
     {
       title: 'Vlog em Tóquio',
       desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
-      color: 'from-red-500 to-orange-500',
-      width: 'w-[85vw] sm:w-[60vw] md:w-[45vw]',
-      aspect: 'aspect-video',
-      align: 'self-end', // Fica alinhado embaixo
+      image: '/projetos/img2.jpg',
     },
     {
       title: 'Lançamento Podcast',
       desc: 'Cenário e identidade visual do projeto gravado em estúdio.',
-      color: 'from-rose-600 to-red-500',
-      width: 'w-[60vw] sm:w-[40vw] md:w-[25vw]',
-      aspect: 'aspect-[9/16]', // Formato Tiktok/Reels
-      align: 'self-center', // Fica centralizado
+      image: '/projetos/img3.jpg',
     },
     {
       title: 'Design de Sneaker',
       desc: 'Collab exclusiva com design próprio que esgotou em horas.',
-      color: 'from-red-700 to-red-600',
-      width: 'w-[80vw] sm:w-[55vw] md:w-[40vw]',
-      aspect: 'aspect-square',
-      align: 'self-start', // Fica em cima
+      image: '/projetos/img4.jpg',
     },
     {
       title: 'Bastidores de Festival',
       desc: 'Cobertura completa de 3 dias do maior evento de música.',
-      color: 'from-orange-600 to-red-500',
-      width: 'w-[85vw] sm:w-[65vw] md:w-[50vw]',
-      aspect: 'aspect-[16/10]',
-      align: 'self-end', // Fica embaixo
+      image: '/projetos/img5.jpg',
     },
     {
       title: 'Campanha Lifestyle',
       desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
-      color: 'from-red-600 to-rose-500',
-      width: 'w-[75vw] sm:w-[50vw] md:w-[35vw]',
-      aspect: 'aspect-[4/5]',
-      align: 'self-start', // Fica alinhado em cima
+      image: '/projetos/img6.jpg',
     },
     {
       title: 'Vlog em Tóquio',
       desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
-      color: 'from-red-500 to-orange-600',
-      width: 'w-[85vw] sm:w-[60vw] md:w-[45vw]',
-      aspect: 'aspect-video',
-      align: 'self-end', // Fica alinhado embaixo
+      image: '/projetos/img7.jpg',
     },
   ];
 
@@ -471,36 +450,94 @@ export default function Home() {
       {/* Projetos Horizontais Dinâmicos (Scroll) */}
       <section ref={carouselRef} className="relative h-[300vh] bg-black">
         <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden py-10 md:py-20">
-          <div className="px-4 md:px-8 max-w-7xl w-full mx-auto mb-10 shrink-0">
-            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight">
+          <div className="px-4 md:px-8 max-w-7xl w-full mx-auto mb-16 shrink-0">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-3"
+            >
               Meus <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-rose-600">Bastidores</span>
-            </h2>
-            <p className="text-gray-400 text-lg mt-2">Role para baixo para explorar meus projetos de perto</p>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-gray-500 text-lg"
+            >
+              Deslize para explorar os momentos e projetos que fizeram acontecer
+            </motion.p>
           </div>
 
-          <motion.div style={{ x: xTimeline }} className="flex gap-8 md:gap-16 px-4 md:px-8 w-max h-[65vh] md:h-[60vh] items-center">
+          <motion.div
+            style={{ x: xTimeline }}
+            className="flex gap-6 md:gap-8 px-4 md:px-8 w-max h-[70vh] md:h-[65vh] items-center"
+          >
             {workHistoryData.map((item, index) => (
-              <div key={index} className={`${item.width} ${item.align} flex flex-col gap-4 md:gap-6`}>
-                <motion.div 
-                  whileHover={{ scale: 0.98 }}
-                  className={`w-full ${item.aspect} rounded-2xl bg-gradient-to-br ${item.color} shadow-2xl relative overflow-hidden group cursor-pointer`}
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: index * 0.05 }}
+                className="flex-shrink-0 group w-[75vw] sm:w-[50vw] md:w-[35vw] h-full"
+              >
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  className="relative h-full rounded-3xl bg-slate-900/30 border border-white/10 overflow-hidden backdrop-blur-sm hover:border-white/20 transition-all duration-500 shadow-2xl hover:shadow-2xl hover:shadow-red-500/10"
                 >
-                  {/* Dica: Quando for usar imagens reais, insira a tag <Image /> do Next.js aqui e remova a div de texto provisória */}
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                  
-                  <div className="absolute inset-0 flex items-center justify-center text-white/20 font-black text-3xl md:text-5xl uppercase tracking-widest z-0 mix-blend-overlay text-center p-4 leading-none">
-                    {item.title}
+                  {/* Imagem */}
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Overlay gradiente */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20 group-hover:via-black/20 transition-all duration-500" />
+
+                  {/* Badge */}
+                  <div className="absolute top-4 right-4 z-20">
+                    <span className="inline-block px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white text-xs font-semibold uppercase tracking-wider group-hover:border-red-500/30 transition-colors">
+                      {index + 1} de {workHistoryData.length}
+                    </span>
                   </div>
+
+                  {/* Conteúdo */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 flex flex-col justify-end p-6 md:p-8"
+                  >
+                    <div>
+                      <h4 className="text-2xl md:text-3xl font-bold text-white mb-2 line-clamp-2">{item.title}</h4>
+                      <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-3">{item.desc}</p>
+                    </div>
+                  </motion.div>
                 </motion.div>
-                
-                <div className="px-2">
-                  <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">{item.title}</h4>
-                  <p className="text-gray-400 text-base md:text-lg leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
+              </motion.div>
             ))}
-            {/* Div invisível para dar um "respiro" no final do scroll */}
-            <div className="w-[10vw] shrink-0" />
+
+            {/* Espaço vazio no final */}
+            <div className="w-[5vw] md:w-[10vw] flex-shrink-0" />
+          </motion.div>
+
+          {/* Scroll Hint */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="absolute bottom-8 left-8 text-gray-500 text-sm font-medium flex items-center gap-2"
+          >
+            <motion.span
+              animate={{ x: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              →
+            </motion.span>
+            Deslize
           </motion.div>
         </div>
       </section>
