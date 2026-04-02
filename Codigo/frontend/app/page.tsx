@@ -724,42 +724,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community / Testimonials */}
-      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full overflow-hidden">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
-            Voz da <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Comunidade</span>
-          </h2>
-          <p className="text-gray-400 text-lg">O impacto real gerado a cada postagem.</p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((test, i) => (
-            <motion.div
-              key={test.id}
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4 + (i % 3), repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
-              className="bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-3xl border border-white/5 shadow-xl hover:border-red-500/30 transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white font-bold shrink-0">
-                  {test.name.charAt(1).toUpperCase()}
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-white leading-tight">{test.name}</p>
-                  <p className="text-xs text-gray-500">{test.time}</p>
-                </div>
-              </div>
-              <p className="text-gray-300 text-sm mb-6 leading-relaxed">"{test.comment}"</p>
-              <div className="flex items-center justify-between text-xs text-gray-500 font-medium border-t border-white/5 pt-4">
-                <span className="flex items-center gap-1.5"><Heart size={14} className="text-red-500" /> {test.likes}</span>
-                <span className="flex items-center gap-1.5 hover:text-white cursor-pointer transition-colors"><MessageCircle size={14} /> Responder</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
       {/* About Section */}
       <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
