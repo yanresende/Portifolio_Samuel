@@ -134,30 +134,79 @@ export default function Home() {
     },
     {
       id: 2,
-      title: 'Collab Exclusiva',
-      description: 'Engajamento recorde',
+      title: 'Conteúdo viral',
+      description: 'Produção viral em evento com base em trend criada por mim',
       gradient: 'from-red-500 to-orange-500',
-      views: '850K',
-      instagramId: 'DRxA8SPgEpi',
+      views: '4.1mi',
+      instagramId: 'DSyGAv2klJj',
       span: 'md:col-span-12 lg:col-span-4',
     },
     {
       id: 3,
-      title: 'Série Premium',
-      description: 'Produção cinematográfica',
+      title: 'Conteúdo viral',
+      description: 'Produção viral em evento com trend que é a minha assinatura',
       gradient: 'from-rose-500 to-red-500',
-      views: '2.1M',
-      youtubeId: 'cenzvPCBXOQ',
+      views: '5.7mi',
+      shortsId: 'bBzQVUmKo3g',
       span: 'md:col-span-12 lg:col-span-6',
     },
     {
       id: 4,
-      title: 'Conteúdo Exclusivo',
-      description: 'Alta conversão',
+      title: 'Conteúdo viral',
+      description: 'Produção viral em evento com trend que é a minha assinatura',
       gradient: 'from-red-700 to-red-500',
-      views: '950K',
-      instagramId: 'DWM-s-_gLXr',
+      views: '4.8mi',
+      tiktokId: '7521444398396165381',
       span: 'md:col-span-12 lg:col-span-6',
+    },
+    {
+      id: 5,
+      title: 'Projeto IEM RIO',
+      description: 'Todo produzido e pensado por mim, junto com empresa parceira',
+      gradient: 'from-orange-500 to-red-600',
+      views: 'Playlist',
+      playlistId: 'PLHtHSGnd-4BHJ6-dd6-IcvHdAv08xFf3D',
+      thumbnail: '/projetos/img1.jpg',
+      span: 'md:col-span-12 lg:col-span-12',
+    },
+  ];
+
+  const shorts = [
+    {
+      id: 1,
+      title: 'Short Viral #1',
+      views: '1.2Mi',
+      tiktokId: '7564167664118025490',
+    },
+    {
+      id: 2,
+      title: 'Short Viral #2',
+      views: '1.3Mi',
+      youtubeShortId: 'TWZeq_9wR8A',
+    },
+    {
+      id: 3,
+      title: 'Short Viral #3',
+      views: '2.3Mi',
+      instagramId: 'DPkFoKrAEn8',
+    },
+    {
+      id: 4,
+      title: 'Short Viral #4',
+      views: '1.5Mi',
+      tiktokId: '7518155254215478534',
+    },
+    {
+      id: 5,
+      title: 'Short Viral #5',
+      views: '1.3Mi',
+      youtubeShortId: 'k0iBs95SOLs',
+    },
+    {
+      id: 6,
+      title: 'Short Viral #6',
+      views: '1.7Mi',
+      instagramId: 'DQFkx6MAKIr',
     },
   ];
 
@@ -575,7 +624,7 @@ export default function Home() {
             >
               {/* Borda Gradiente Animada */}
               <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-40 group-hover:opacity-80 transition-opacity duration-500`} />
-              
+
               {/* Conteúdo do Card em Estilo Glassmorphism */}
               <div className="relative h-full bg-slate-950/80 backdrop-blur-2xl rounded-[31px] p-6 md:p-8 flex flex-col gap-6 hover:bg-slate-900/80 transition-colors duration-500 border border-white/5 group-hover:border-white/10">
                 {/* Header do Card */}
@@ -594,7 +643,7 @@ export default function Home() {
                 </div>
 
                 {/* Container de Mídia (iFrames) */}
-                <div className={`relative w-full ${project.youtubeId ? 'aspect-video' : 'aspect-[4/5]'} rounded-2xl overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl group-hover:ring-white/20 transition-all`}>
+                <div className={`relative w-full ${project.youtubeId || project.playlistId ? 'aspect-video' : 'aspect-[4/5]'} rounded-2xl overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl group-hover:ring-white/20 transition-all`}>
                   {project.youtubeId ? (
                     <iframe
                       className="absolute inset-0 w-full h-full pointer-events-auto"
@@ -603,23 +652,148 @@ export default function Home() {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
+                  ) : project.playlistId ? (
+                    <a href={`https://www.youtube.com/playlist?list=${project.playlistId}`} target="_blank" rel="noopener noreferrer" className="absolute inset-0 w-full h-full block group/link">
+                      {project.thumbnail && (
+                        <Image src={project.thumbnail} alt={project.title} fill className="object-cover group-hover/link:scale-105 transition-transform duration-500" />
+                      )}
+                      <div className="absolute inset-0 bg-black/40 group-hover/link:bg-black/20 transition-colors duration-300" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center text-white shadow-2xl transform group-hover/link:scale-110 transition-transform">
+                          <Play size={28} fill="currentColor" />
+                        </div>
+                      </div>
+                      <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-full text-xs text-white font-semibold border border-white/10 flex items-center gap-2">
+                        <FaYoutube size={14} className="text-red-500" />
+                        Playlist Completa
+                      </div>
+                    </a>
+                  ) : project.shortsId ? (
+                    <iframe
+                      className="absolute inset-0 w-full h-full pointer-events-auto"
+                      src={`https://www.youtube.com/embed/${project.shortsId}?modestbranding=1&rel=0`}
+                      title={project.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
                   ) : project.instagramId ? (
+                    <iframe
+                      className="absolute inset-0 w-full h-full pointer-events-auto bg-white"
+                      src={`https://www.instagram.com/p/${project.instagramId}/embed`}
+                      title={project.title}
+                      frameBorder="0"
+                      scrolling="no"
+                      allowTransparency={true}
+                      allow="encrypted-media"
+                    ></iframe>
+                  ) : project.tiktokId ? (
+                    <iframe
+                      className="absolute inset-0 w-full h-full pointer-events-auto bg-white"
+                      src={`https://www.tiktok.com/embed/${project.tiktokId}`}
+                      title={project.title}
+                      frameBorder="0"
+                      scrolling="no"
+                      allowTransparency={true}
+                      allow="encrypted-media"
+                    ></iframe>
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Play className="text-white w-8 h-8" />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Shorts Section */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
+            Meus <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Shorts</span>
+          </h2>
+          <p className="text-gray-400 text-lg">
+            Conteúdo vertical viral em formato curto
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {shorts.map((short, i) => (
+            <motion.div
+              key={short.id}
+              variants={itemVariants}
+              whileHover={{ y: -8, scale: 1.05 }}
+              className="group relative rounded-2xl overflow-hidden cursor-pointer h-[300px] sm:h-[400px]"
+            >
+              {/* Background com gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br from-red-600/30 to-orange-600/30 group-hover:from-red-500/50 group-hover:to-orange-500/50 transition-all duration-500 z-0`} />
+
+              {/* Container do vídeo em 9:16 */}
+              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl group-hover:ring-white/20 transition-all">
+                {short.tiktokId ? (
                   <iframe
-                    className="absolute inset-0 w-full h-full pointer-events-auto bg-white"
-                    src={`https://www.instagram.com/p/${project.instagramId}/embed`}
-                    title={project.title}
+                    className="absolute inset-0 w-full h-full pointer-events-auto"
+                    src={`https://www.tiktok.com/embed/${short.tiktokId}`}
+                    title={short.title}
                     frameBorder="0"
                     scrolling="no"
                     allowTransparency={true}
                     allow="encrypted-media"
                   ></iframe>
-                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Play className="text-white w-8 h-8"/>
-                    </div>
-                  )}
-                </div>
+                ) : short.youtubeShortId ? (
+                  <iframe
+                    className="absolute inset-0 w-full h-full pointer-events-auto"
+                    src={`https://www.youtube.com/embed/${short.youtubeShortId}?modestbranding=1&rel=0`}
+                    title={short.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ) : short.instagramId ? (
+                  <iframe
+                    className="absolute inset-0 w-full h-full pointer-events-auto bg-white"
+                    src={`https://www.instagram.com/p/${short.instagramId}/embed`}
+                    title={short.title}
+                    frameBorder="0"
+                    scrolling="no"
+                    allowTransparency={true}
+                    allow="encrypted-media"
+                  ></iframe>
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Play className="text-white w-8 h-8" />
+                  </div>
+                )}
               </div>
+
+              {/* Info Overlay */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileHover={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="absolute inset-0 flex flex-col justify-end p-4 z-10"
+              >
+                <div className="backdrop-blur-md bg-black/50 rounded-lg p-3 border border-white/10">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Play size={12} className="text-red-500" />
+                    <span className="text-white text-xs font-bold">{short.views} views</span>
+                  </div>
+                  <p className="text-white text-xs font-medium line-clamp-1">{short.title}</p>
+                </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
@@ -763,11 +937,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative"
           >
-              <div className="w-full aspect-square bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-2xl border border-red-500/20 flex items-center justify-center overflow-hidden">
+            <div className="w-full aspect-square bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-2xl border border-red-500/20 flex items-center justify-center overflow-hidden">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                  className="absolute inset-0 bg-gradient-to-r from-red-700 via-red-500 to-orange-500 opacity-20 blur-3xl"
+                className="absolute inset-0 bg-gradient-to-r from-red-700 via-red-500 to-orange-500 opacity-20 blur-3xl"
               />
               <motion.div
                 variants={floatingVariants}
