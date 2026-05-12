@@ -947,12 +947,250 @@ export default function Home() {
               <motion.div
                 variants={floatingVariants}
                 animate="float"
-                className="relative text-6xl"
+                className="relative w-[80%] h-[80%] rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
               >
-                📱
+                <Image 
+                  src="/projetos/perfil.jpeg" 
+                  alt="Foto de perfil do Samuel" 
+                  fill
+                  className="object-cover"
+                />
               </motion.div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Comic Book Photo Montage */}
+      <section className="relative overflow-hidden py-20 md:py-32 bg-zinc-950">
+        {/* Halftone dot pattern de fundo */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(255,210,0,0.13) 2.5px, transparent 2.5px)',
+            backgroundSize: '22px 22px',
+          }}
+        />
+        {/* Linhas de velocidade diagonais */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.025]"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(60deg, #fff 0px, #fff 1px, transparent 1px, transparent 28px)',
+          }}
+        />
+
+        <div className="px-4 md:px-8 max-w-7xl mx-auto relative z-10">
+
+          {/* Header estilo capa de HQ */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12 relative flex flex-col items-start gap-2"
+          >
+            {/* Starburst laranja grande */}
+            <svg viewBox="0 0 100 100" className="absolute -top-8 right-2 md:right-24 w-24 h-24 md:w-32 md:h-32 text-orange-500 rotate-6 drop-shadow-lg" fill="currentColor" aria-hidden="true">
+              <polygon points="50,2 57,30 84,16 70,42 96,52 68,58 74,86 50,72 26,86 32,58 4,52 30,42 16,16 43,30" />
+            </svg>
+            {/* Starburst amarelo menor */}
+            <svg viewBox="0 0 100 100" className="absolute top-2 right-28 md:right-52 w-14 h-14 md:w-20 md:h-20 text-yellow-400 -rotate-12 drop-shadow-md" fill="currentColor" aria-hidden="true">
+              <polygon points="50,2 57,30 84,16 70,42 96,52 68,58 74,86 50,72 26,86 32,58 4,52 30,42 16,16 43,30" />
+            </svg>
+
+            {/* Ribbon 1 — ISSUE #01 */}
+            <div
+              className="bg-red-600 pl-6 pr-10 py-2.5 -rotate-1 shadow-[5px_5px_0px_#000]"
+              style={{ clipPath: 'polygon(0 0, 94% 0, 100% 50%, 94% 100%, 0 100%)' }}
+            >
+              <span className="text-white font-black text-xs md:text-sm uppercase tracking-[0.3em]">Edição #01</span>
+            </div>
+
+            {/* Ribbon 2 — GALERIA (título principal) */}
+            <div
+              className="bg-yellow-400 pl-6 pr-14 py-4 rotate-[-0.5deg] shadow-[7px_7px_0px_#000]"
+              style={{ clipPath: 'polygon(0 0, 96% 0, 100% 50%, 96% 100%, 0 100%)' }}
+            >
+              <span className="text-black font-black text-5xl md:text-8xl uppercase tracking-tight italic leading-none">GALERIA</span>
+            </div>
+
+            {/* Ribbon 3 — subtítulo */}
+            <div
+              className="bg-black pl-6 pr-10 py-2.5 rotate-1 border-y-[3px] border-yellow-400 shadow-[5px_5px_0px_#dc2626]"
+              style={{ clipPath: 'polygon(0 0, 96% 0, 100% 50%, 96% 100%, 0 100%)' }}
+            >
+              <span className="text-yellow-400 font-black text-xs md:text-sm uppercase tracking-[0.25em]">BASTIDORES EXCLUSIVOS</span>
+            </div>
+          </motion.div>
+
+          {/* Desktop Grid */}
+          <div
+            className="hidden md:grid gap-[6px] bg-black border-[6px] border-black p-[6px] shadow-[16px_16px_0px_rgba(220,38,38,0.25)]"
+            style={{ gridTemplateColumns: '2fr 1fr 1fr', gridTemplateRows: '400px 280px' }}
+          >
+            {/* Panel 1 — Herói */}
+            <motion.div
+              className="row-span-2 relative overflow-hidden group border-[3px] border-black"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Image src="/projetos/q1.jpeg" alt="Bastidores 1" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
+                style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              {/* Ribbon esquerda */}
+              <div
+                className="absolute top-6 left-0 bg-red-600 pl-5 pr-10 py-3 shadow-[4px_4px_0px_rgba(0,0,0,0.9)]"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 88% 50%, 100% 100%, 0 100%)' }}
+              >
+                <span className="text-white font-black text-base uppercase tracking-wider italic">VIRAL!</span>
+              </div>
+              {/* Rodapé caption */}
+              <div className="absolute bottom-0 left-0 right-0 border-t-[5px] border-yellow-400 bg-black px-5 py-4">
+                <p className="text-yellow-400 font-black text-2xl md:text-3xl uppercase italic leading-none">Samuel Bola</p>
+                <p className="text-white/60 text-xs font-bold uppercase tracking-widest mt-1">Criador de Conteúdo</p>
+              </div>
+            </motion.div>
+
+            {/* Panel 2 */}
+            <motion.div
+              className="relative overflow-hidden group border-[3px] border-black"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <Image src="/projetos/q2.jpeg" alt="Bastidores 2" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
+                style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
+              {/* Ribbon direita */}
+              <div
+                className="absolute top-4 right-0 bg-yellow-400 pr-5 pl-10 py-2.5 shadow-[3px_3px_0px_rgba(0,0,0,0.9)]"
+                style={{ clipPath: 'polygon(12% 0, 100% 0, 100% 100%, 12% 100%, 0 50%)' }}
+              >
+                <span className="text-black font-black text-xs uppercase tracking-wider">POW!</span>
+              </div>
+            </motion.div>
+
+            {/* Panel 3 */}
+            <motion.div
+              className="relative overflow-hidden group border-[3px] border-black"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+            >
+              <Image src="/projetos/q3.jpeg" alt="Bastidores 3" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
+                style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
+              <div
+                className="absolute bottom-4 left-0 bg-red-600 pl-5 pr-9 py-2.5 shadow-[3px_3px_0px_rgba(0,0,0,0.9)]"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 88% 50%, 100% 100%, 0 100%)' }}
+              >
+                <span className="text-white font-black text-xs uppercase tracking-wider">HOT!</span>
+              </div>
+            </motion.div>
+
+            {/* Panel 4 */}
+            <motion.div
+              className="relative overflow-hidden group border-[3px] border-black"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Image src="/projetos/q4.jpeg" alt="Bastidores 4" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
+                style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
+              <div
+                className="absolute top-4 left-0 bg-yellow-400 pl-5 pr-9 py-2.5 shadow-[3px_3px_0px_rgba(0,0,0,0.9)]"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 88% 50%, 100% 100%, 0 100%)' }}
+              >
+                <span className="text-black font-black text-xs uppercase tracking-wider italic">ZAP!</span>
+              </div>
+            </motion.div>
+
+            {/* Panel 5 */}
+            <motion.div
+              className="relative overflow-hidden group border-[3px] border-black"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25 }}
+            >
+              <Image src="/projetos/q5.jpeg" alt="Bastidores 5" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
+                style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
+              <div className="absolute bottom-0 left-0 right-0 border-t-[3px] border-yellow-400 bg-black/90 px-4 py-2">
+                <span className="text-yellow-400 font-black text-xs uppercase tracking-widest">WOW!</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Mobile Grid */}
+          <div className="md:hidden grid grid-cols-2 gap-[4px] bg-black border-[4px] border-black p-[4px] shadow-[8px_8px_0px_rgba(220,38,38,0.25)]">
+            <motion.div
+              className="col-span-2 relative overflow-hidden border-[2px] border-black"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              style={{ aspectRatio: '16/9' }}
+            >
+              <Image src="/projetos/q1.jpeg" alt="Gallery 1" fill className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div
+                className="absolute top-3 left-0 bg-red-600 pl-4 pr-7 py-1.5 shadow-[2px_2px_0px_#000]"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 88% 50%, 100% 100%, 0 100%)' }}
+              >
+                <span className="text-white font-black text-xs uppercase italic">VIRAL!</span>
+              </div>
+            </motion.div>
+            {[
+              { src: '/projetos/q2.jpeg', tag: 'POW!', pos: 'top-2 right-0', clip: 'polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)', cls: 'bg-yellow-400 text-black pr-3 pl-5' },
+              { src: '/projetos/q3.jpeg', tag: 'HOT!', pos: 'bottom-2 left-0', clip: 'polygon(0 0,100% 0,88% 50%,100% 100%,0 100%)', cls: 'bg-red-600 text-white pl-3 pr-5' },
+              { src: '/projetos/q4.jpeg', tag: 'ZAP!', pos: 'top-2 left-0', clip: 'polygon(0 0,100% 0,88% 50%,100% 100%,0 100%)', cls: 'bg-yellow-400 text-black pl-3 pr-5' },
+              { src: '/projetos/q5.jpeg', tag: 'WOW!', pos: 'bottom-2 right-0', clip: 'polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)', cls: 'bg-red-600 text-white pr-3 pl-5' },
+            ].map((panel, i) => (
+              <motion.div
+                key={i}
+                className="relative overflow-hidden border-[2px] border-black"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: (i + 1) * 0.06 }}
+                style={{ aspectRatio: '1/1' }}
+              >
+                <Image src={panel.src} alt={`Gallery ${i + 2}`} fill className="object-cover" />
+                <div
+                  className={`absolute py-1.5 font-black text-xs uppercase shadow-[2px_2px_0px_#000] ${panel.pos} ${panel.cls}`}
+                  style={{ clipPath: panel.clip }}
+                >
+                  {panel.tag}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Faixa amarela animada no rodapé da seção */}
+        <div className="mt-16 relative overflow-hidden shadow-[0_-5px_0_#000,0_5px_0_#000]" style={{ transform: 'skewY(-1deg)' }}>
+          <div className="bg-yellow-400 py-4 overflow-hidden">
+            <motion.div
+              className="flex whitespace-nowrap"
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{ repeat: Infinity, ease: 'linear', duration: 14 }}
+            >
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex gap-10 px-6 text-black font-black text-xl uppercase tracking-widest items-center">
+                  <span>SAMUEL BOLA</span><span>★</span>
+                  <span>CRIADOR DE CONTEÚDO</span><span>★</span>
+                  <span>BASTIDORES</span><span>★</span>
+                  <span>GALERIA</span><span>★</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
