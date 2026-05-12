@@ -275,9 +275,9 @@ export default function Home() {
   const infiniteBrands = [...brands, ...brands];
 
   const services = [
-    { title: 'Publis', desc: 'Vídeos autênticos que convertem e geram desejo para a sua marca.', icon: <Video className="w-8 h-8 mb-4 text-red-500" />, span: 'md:col-span-2 md:row-span-2', gradient: 'from-red-600/20 to-orange-600/20' },
-    { title: 'Cobertura de Eventos', desc: 'Vlogs e bastidores mostrando a energia real do evento.', icon: <Camera className="w-8 h-8 mb-4 text-rose-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-rose-600/20 to-pink-600/20' },
-    { title: 'Host de Lives', desc: 'Apresentação dinâmica para reter a atenção do público.', icon: <Mic className="w-8 h-8 mb-4 text-orange-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-orange-600/20 to-amber-600/20' },
+    { title: 'Publis', desc: 'Vídeos autênticos que convertem e geram desejo para a sua marca.',img: "/projetos/vestiario-galo.jpg.jpeg" , icon: <Video className="w-8 h-8 mb-4 text-red-500" />, span: 'md:col-span-2 md:row-span-2', gradient: 'from-red-600/20 to-orange-600/20' },
+    { title: 'Cobertura de Eventos', desc: 'Vlogs e bastidores mostrando a energia real do evento.',img: "/projetos/vestiario-galo.jpg.jpeg" , icon: <Camera className="w-8 h-8 mb-4 text-rose-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-rose-600/20 to-pink-600/20' },
+    { title: 'Host de Lives', desc: 'Apresentação dinâmica para reter a atenção do público.',img: "/projetos/vestiario-galo.jpg.jpeg" , icon: <Mic className="w-8 h-8 mb-4 text-orange-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-orange-600/20 to-amber-600/20' },
   ];
 
   const networkStats = [
@@ -485,6 +485,7 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
               className={`relative overflow-hidden rounded-3xl p-8 flex flex-col justify-end group bg-gradient-to-br border border-white/5 ${service.gradient} ${service.span}`}
             >
+              <Image src={service.img} alt={service.title} fill className="object-cover" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
               <div className="relative z-10">
                 {service.icon}
