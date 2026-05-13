@@ -125,7 +125,7 @@ export default function Home() {
   const projects = [
     {
       id: 1,
-      title: 'Projeto Viral #1',
+      title: 'O Recomeço',
       description: '+1M visualizações orgânicas',
       gradient: 'from-red-600 to-rose-600',
       views: '1.2M',
@@ -135,7 +135,7 @@ export default function Home() {
     {
       id: 2,
       title: 'Conteúdo viral',
-      description: 'Produção viral em evento com base em trend criada por mim',
+      description: 'Do meu quadro viral, qual é a coisa mais nerd que você sabe?',
       gradient: 'from-red-500 to-orange-500',
       views: '4.1mi',
       instagramId: 'DSyGAv2klJj',
@@ -144,7 +144,7 @@ export default function Home() {
     {
       id: 3,
       title: 'Conteúdo viral',
-      description: 'Produção viral em evento com trend que é a minha assinatura',
+      description: 'Do meu quadro viral, qual é o cosplay que você não faria?',
       gradient: 'from-rose-500 to-red-500',
       views: '5.7mi',
       shortsId: 'bBzQVUmKo3g',
@@ -153,7 +153,7 @@ export default function Home() {
     {
       id: 4,
       title: 'Conteúdo viral',
-      description: 'Produção viral em evento com trend que é a minha assinatura',
+      description: 'Do meu quadro viral, qual é a coisa mais nerd que você sabe?',
       gradient: 'from-red-700 to-red-500',
       views: '4.8mi',
       tiktokId: '7521444398396165381',
@@ -166,7 +166,7 @@ export default function Home() {
       gradient: 'from-orange-500 to-red-600',
       views: 'Playlist',
       playlistId: 'PLHtHSGnd-4BHJ6-dd6-IcvHdAv08xFf3D',
-      thumbnail: '/projetos/img1.jpg',
+      thumbnail: '/projetos/iem.jpeg',
       span: 'md:col-span-12 lg:col-span-12',
     },
   ];
@@ -274,10 +274,10 @@ export default function Home() {
   // Duplicamos a lista para o efeito de "scroll infinito" ser contínuo e sem quebras
   const infiniteBrands = [...brands, ...brands];
 
-  const services = [
-    { title: 'Cobertura de Eventos', desc: 'Apresentação dinâmica para reter a atenção do público.',img: "/projetos/evento.jpg" , icon: <Mic className="w-8 h-8 mb-4 text-orange-500" />, span: 'md:col-span-2 md:row-span-2', gradient: 'from-red-600/20 to-orange-600/20' },
-    { title: 'Publis', desc: 'Vídeos autênticos que convertem e geram desejo para a sua marca.',img: "/projetos/vestiario-galo.jpg.jpeg" , icon: <Camera className="w-8 h-8 mb-4 text-rose-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-rose-600/20 to-pink-600/20' },
-    { title: 'Host de Lives', desc: 'Vlogs e bastidores mostrando a energia real do evento.Apresentação dinâmica para reter a atenção do público.',img: "/projetos/img5.jpg" , icon: <Video className="w-8 h-8 mb-4 text-red-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-orange-600/20 to-amber-600/20' },
+  const services = [ 
+    { title: 'Cobertura de Experiências', desc: 'Transmissão da energia real do seu evento com foco em engajamento e retenção.',img: "/projetos/evento.jpg" , icon: <Mic className="w-8 h-8 mb-4 text-orange-500" />, span: 'md:col-span-2 md:row-span-2', gradient: 'from-red-600/20 to-orange-600/20' },
+    { title: 'Social Ads', desc: 'Conteúdo magnético que convertem e geram público para a sua marca.',img: "/projetos/vestiario-galo.jpg.jpeg" , icon: <Camera className="w-8 h-8 mb-4 text-rose-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-rose-600/20 to-pink-600/20' },
+    { title: 'Live Hosting', desc: 'Domínio para manter o engajamento alto e o chat ativo durante toda a transmissão.',img: "/projetos/qu3.jpg" , icon: <Video className="w-8 h-8 mb-4 text-red-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-orange-600/20 to-amber-600/20' },
   ];
 
   const networkStats = [
@@ -292,6 +292,7 @@ export default function Home() {
     { id: 2, brand: 'Somos Resenha', code: 'Bola15', discount: '15% OFF', link: 'https://somosresenha.com.br/' },
     { id: 3, brand: 'Rainclub', code: 'BOLA', discount: '10% OFF', link: 'https://www.instagram.com/the.rainclub/reels/' },
     { id: 4, brand: 'No Ping', code: 'bola', discount: '10 Dias Gratis', link: 'https://noping.com/pt' },
+    { id: 5, brand: 'Sou Corneta', code: 'samuel12', discount: '12% OFF', link: 'https://soucorneta.com.br' }
   ];
 
   const testimonials = [
@@ -371,7 +372,7 @@ export default function Home() {
             variants={itemVariants}
             className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto"
           >
-            Conteúdo viral, autêntico e inspirador. Acompanhe minhas criações impactantes!
+            Conteúdo viral, autêntico e inspirador. Acompanhe minhas criações com mais impacto!
           </motion.p>
 
           <motion.div
@@ -918,7 +919,7 @@ export default function Home() {
                 Criador de <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Conteúdo</span>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed">
-                Com mais de 2 anos de experiência criando conteúdo viral, especializado em reels, shorts e
+                Com mais de 6 anos de experiência criando conteúdo viral, especializado em reels, shorts e
                 transmissões ao vivo. Meu objetivo é criar conteúdo autêntico que inspire e divirta minha comunidade.
               </p>
               <motion.button
@@ -950,7 +951,7 @@ export default function Home() {
                 className="relative w-[80%] h-[80%] rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
               >
                 <Image 
-                  src="/projetos/perfil.jpeg" 
+                  src="/projetos/perfil2.jpeg" 
                   alt="Foto de perfil do Samuel" 
                   fill
                   className="object-cover"
@@ -1035,7 +1036,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Image src="/projetos/q1.jpeg" alt="Bastidores 1" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/projetos/qu2.jpeg" alt="Bastidores 1" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
                 style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -1061,7 +1062,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <Image src="/projetos/q2.jpeg" alt="Bastidores 2" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/projetos/qu1.png" alt="Bastidores 2" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
                 style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
               {/* Ribbon direita */}
@@ -1081,7 +1082,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
             >
-              <Image src="/projetos/q3.jpeg" alt="Bastidores 3" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/projetos/img5.jpg" alt="Bastidores 3" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
                 style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
               <div
@@ -1100,7 +1101,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <Image src="/projetos/q4.jpeg" alt="Bastidores 4" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/projetos/qu5.jpeg" alt="Bastidores 4" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
                 style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
               <div
@@ -1119,7 +1120,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.25 }}
             >
-              <Image src="/projetos/q5.jpeg" alt="Bastidores 5" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/projetos/qu6.png" alt="Bastidores 5" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
                 style={{ backgroundImage: 'radial-gradient(circle, #000 1.5px, transparent 1.5px)', backgroundSize: '5px 5px' }} />
               <div className="absolute bottom-0 left-0 right-0 border-t-[3px] border-yellow-400 bg-black/90 px-4 py-2">
