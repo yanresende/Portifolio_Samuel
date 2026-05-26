@@ -212,38 +212,45 @@ export default function Home() {
 
   const workHistoryData = [
     {
+      tag: 'Evento',
       title: 'DBE 2024 | Reportagem e Host Oficial',
-      desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
+      desc: 'Reportagem e apresentação oficial no maior evento de streetwear do Brasil.',
       image: '/timeline/DBE_2024.jpeg',
     },
     {
+      tag: 'Case',
       title: 'Gamescom 2025 | Case de Sucesso: Buffly',
-      desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
+      desc: 'Parceria internacional com a Buffly na maior feira de games do mundo.',
       image: '/timeline/Gamescom_2025.jpeg',
     },
     {
+      tag: 'Host',
       title: 'Narração e Apresentação | Shoutcasting & Host',
-      desc: 'Cenário e identidade visual do projeto gravado em estúdio.',
+      desc: 'Apresentação e narração ao vivo em eventos de esports e entretenimento.',
       image: '/timeline/img3.jpg',
     },
     {
+      tag: 'Cobertura',
       title: 'Cobertura de Grandes Eventos | Especialista em Viralização',
-      desc: 'Collab exclusiva com design próprio que esgotou em horas.',
+      desc: 'Cobertura completa com conteúdo que viraliza e engaja o público.',
       image: '/timeline/img4.jpg',
     },
     {
+      tag: 'Documentário',
       title: 'IEM Rio 2026 | Case Trexx: Experiência e Documentário',
-      desc: 'Cobertura completa de 3 dias do maior evento de música.',
+      desc: 'Documentário imersivo do maior torneio de CS do mundo no Rio de Janeiro.',
       image: '/timeline/IEM_RIO.jpeg',
     },
     {
+      tag: 'Autoral',
       title: 'Produções Autorais | Direção Criativa e Retrospectiva',
-      desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
+      desc: 'Séries e projetos autorais com direção criativa do início ao fim.',
       image: '/timeline/img6.jpg',
     },
     {
-      title: 'Clube Atlético Mineiro & Banco BMG | Marketing e Branding Esportivo',
-      desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
+      tag: 'Branding',
+      title: 'Atlético Mineiro & Banco BMG | Marketing e Branding Esportivo',
+      desc: 'Campanhas de marketing esportivo para o Galo e parceiro institucional.',
       image: '/timeline/img7.jpg',
     },
   ];
@@ -542,7 +549,7 @@ export default function Home() {
                 <motion.div
                   whileHover={{ y: -8, scale: 1.02 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  className="relative h-full rounded-3xl bg-slate-900/30 border border-white/10 overflow-hidden backdrop-blur-sm hover:border-white/20 transition-all duration-500 shadow-2xl hover:shadow-2xl hover:shadow-red-500/10"
+                  className="relative h-full rounded-3xl bg-slate-900/30 border border-white/10 overflow-hidden backdrop-blur-sm hover:border-red-500/30 transition-all duration-500 shadow-2xl hover:shadow-2xl hover:shadow-red-500/10"
                 >
                   {/* Imagem */}
                   <Image
@@ -552,28 +559,29 @@ export default function Home() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Overlay gradiente */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20 group-hover:via-black/20 transition-all duration-500" />
+                  {/* Overlay gradiente — mais forte na base para garantir leitura */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
-                  {/* Badge */}
-                  <div className="absolute top-4 right-4 z-20">
-                    <span className="inline-block px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white text-xs font-semibold uppercase tracking-wider group-hover:border-red-500/30 transition-colors">
-                      {index + 1} de {workHistoryData.length}
+                  {/* Badges superiores */}
+                  <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between">
+                    <span className="inline-block px-3 py-1 bg-red-600/80 backdrop-blur-md rounded-full text-white text-xs font-bold uppercase tracking-wider">
+                      {item.tag}
+                    </span>
+                    <span className="inline-block px-3 py-1 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white/60 text-xs font-semibold group-hover:border-red-500/30 group-hover:text-white transition-colors">
+                      {index + 1}/{workHistoryData.length}
                     </span>
                   </div>
 
-                  {/* Conteúdo */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 flex flex-col justify-end p-6 md:p-8"
-                  >
-                    <div>
-                      <h4 className="text-2xl md:text-3xl font-bold text-white mb-2 line-clamp-2">{item.title}</h4>
-                      <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-3">{item.desc}</p>
-                    </div>
-                  </motion.div>
+                  {/* Título — sempre visível */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 z-10">
+                    <h4 className="text-xl md:text-2xl font-bold text-white mb-2 line-clamp-2 drop-shadow-lg">
+                      {item.title}
+                    </h4>
+                    {/* Descrição — aparece no hover via group */}
+                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-2 max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-300">
+                      {item.desc}
+                    </p>
+                  </div>
                 </motion.div>
               </motion.div>
             ))}
@@ -582,21 +590,35 @@ export default function Home() {
             <div className="w-[5vw] md:w-[10vw] flex-shrink-0" />
           </motion.div>
 
-          {/* Scroll Hint */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="absolute bottom-8 left-8 text-gray-500 text-sm font-medium flex items-center gap-2"
-          >
+          {/* Barra de progresso + Scroll Hint */}
+          <div className="absolute bottom-6 left-8 right-8 flex items-center gap-4">
             <motion.span
-              animate={{ x: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="text-gray-500 text-sm font-medium flex items-center gap-2 shrink-0"
             >
-              →
+              <motion.span
+                animate={{ x: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                →
+              </motion.span>
+              Role para explorar
             </motion.span>
-            Deslize
-          </motion.div>
+            <div className="flex-1 h-[2px] bg-white/10 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-red-500 to-orange-500 rounded-full origin-left"
+                style={{ scaleX: smoothProgress }}
+              />
+            </div>
+            <motion.span
+              style={{ opacity: smoothProgress }}
+              className="text-gray-500 text-xs font-medium shrink-0"
+            >
+              {workHistoryData.length} projetos
+            </motion.span>
+          </div>
         </div>
       </section>
 
