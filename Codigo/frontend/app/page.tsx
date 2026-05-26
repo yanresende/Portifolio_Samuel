@@ -212,39 +212,39 @@ export default function Home() {
 
   const workHistoryData = [
     {
-      title: 'Campanha Lifestyle',
+      title: 'DBE 2024 | Reportagem e Host Oficial',
       desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
-      image: '/projetos/img1.jpg',
+      image: '/timeline/DBE_2024.jpeg',
     },
     {
-      title: 'Vlog em Tóquio',
+      title: 'Gamescom 2025 | Case de Sucesso: Buffly',
       desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
-      image: '/projetos/img2.jpg',
+      image: '/timeline/Gamescom_2025.jpeg',
     },
     {
-      title: 'Lançamento Podcast',
+      title: 'Narração e Apresentação | Shoutcasting & Host',
       desc: 'Cenário e identidade visual do projeto gravado em estúdio.',
-      image: '/projetos/img3.jpg',
+      image: '/timeline/img3.jpg',
     },
     {
-      title: 'Design de Sneaker',
+      title: 'Cobertura de Grandes Eventos | Especialista em Viralização',
       desc: 'Collab exclusiva com design próprio que esgotou em horas.',
-      image: '/projetos/img4.jpg',
+      image: '/timeline/img4.jpg',
     },
     {
-      title: 'Bastidores de Festival',
+      title: 'IEM Rio 2026 | Case Trexx: Experiência e Documentário',
       desc: 'Cobertura completa de 3 dias do maior evento de música.',
-      image: '/projetos/img5.jpg',
+      image: '/timeline/IEM_RIO.jpeg',
     },
     {
-      title: 'Campanha Lifestyle',
+      title: 'Produções Autorais | Direção Criativa e Retrospectiva',
       desc: 'Direção criativa e vídeo para a maior marca de streetwear nacional.',
-      image: '/projetos/img6.jpg',
+      image: '/timeline/img6.jpg',
     },
     {
-      title: 'Vlog em Tóquio',
+      title: 'Clube Atlético Mineiro & Banco BMG | Marketing e Branding Esportivo',
       desc: 'Série de vídeos imersivos explorando a cultura japonesa.',
-      image: '/projetos/img7.jpg',
+      image: '/timeline/img7.jpg',
     },
   ];
 
@@ -264,12 +264,18 @@ export default function Home() {
     { name: 'KitKat', logo: '/brands/kitkat_logo.png' },
     { name: 'CBLOL', logo: '/brands/cblol_logo.png' },
     { name: 'ElHero', logo: '/brands/elhero_logo.jpg' },
-    { name: 'Sesc Geek', logo: '/brands/sescgeek_logo.jpeg' },
-    { name: 'Red Bull', logo: '/brands/redbull_logo.png' },
+    { name: 'Sesc Geek', logo: '/brands/sescgeek_logo.png' },
+    { name: 'Red Bull', logo: '/brands/redbull_logo.avif' },
     { name: 'Itatiaia', logo: '/brands/itatiaia_logo.png' },
-    { name: 'Lbee', logo: '/brands/lbee_logo.jpg' },
+    { name: 'Lbee', logo: '/brands/LBEE_logo.png' },
     { name: 'Buffly', logo: '/brands/buffly_logo.png' },
-    { name: 'Trexx', logo: '/brands/Trexx_logo.png' },
+    { name: 'Trexx', logo: '/brands/trexx_logo.png' },
+    { name: 'DiversiGames', logo: '/brands/DiversiGames_Logo.png' },
+    { name: 'Blink', logo: '/brands/BLINK_Logo.png' },
+    { name: 'GPJ', logo: '/brands/gpj_logo.png' },
+    { name: 'Galo Verso', logo: '/brands/galoVerso_logo.jpeg' },
+    { name: 'Gamers Club', logo: '/brands/gamers_club_logo.png' },
+    { name: 'Ferjee', logo: '/brands/ferjee_logo.png' },
   ];
   // Duplicamos a lista para o efeito de "scroll infinito" ser contínuo e sem quebras
   const infiniteBrands = [...brands, ...brands];
@@ -292,7 +298,8 @@ export default function Home() {
     { id: 2, brand: 'Somos Resenha', code: 'Bola15', discount: '15% OFF', link: 'https://somosresenha.com.br/' },
     { id: 3, brand: 'Rainclub', code: 'BOLA', discount: '10% OFF', link: 'https://www.instagram.com/the.rainclub/reels/' },
     { id: 4, brand: 'No Ping', code: 'bola', discount: '10 Dias Gratis', link: 'https://noping.com/pt' },
-    { id: 5, brand: 'Sou Corneta', code: 'samuel12', discount: '12% OFF', link: 'https://soucorneta.com.br' }
+    { id: 5, brand: 'Sou Corneta', code: 'samuel12', discount: '12% OFF', link: 'https://soucorneta.com.br' },
+    { id: 6, brand: 'Super Skin', code: 'bola', discount: '+20% no deposito + 6 welcome cases', link: 'https://superskin.gg/portuguese' }
   ];
 
   const testimonials = [
@@ -347,7 +354,7 @@ export default function Home() {
         >
           <motion.div variants={itemVariants} className="mb-6">
             <span className="inline-block px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full text-red-400 text-sm font-medium">
-              ✨ O MELHOR CRIADOR DE CONTEÚDO
+              ✨ O MELHOR CREATOR
             </span>
           </motion.div>
 
@@ -456,7 +463,7 @@ export default function Home() {
         >
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-8 px-4 text-black font-black text-4xl md:text-5xl uppercase tracking-widest items-center">
-              <span>CRIADOR DE CONTEÚDO</span>
+              <span>Creator</span>
               <span>•</span>
               <span>VIRAL</span>
               <span>•</span>
@@ -951,7 +958,7 @@ export default function Home() {
                 className="relative w-[80%] h-[80%] rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
               >
                 <Image 
-                  src="/projetos/perfil2.jpeg" 
+                  src="/projetos/perfil_op3.jpg.jpeg" 
                   alt="Foto de perfil do Samuel" 
                   fill
                   className="object-cover"
@@ -1050,7 +1057,7 @@ export default function Home() {
               {/* Rodapé caption */}
               <div className="absolute bottom-0 left-0 right-0 border-t-[5px] border-yellow-400 bg-black px-5 py-4">
                 <p className="text-yellow-400 font-black text-2xl md:text-3xl uppercase italic leading-none">Samuel Bola</p>
-                <p className="text-white/60 text-xs font-bold uppercase tracking-widest mt-1">Criador de Conteúdo</p>
+                <p className="text-white/60 text-xs font-bold uppercase tracking-widest mt-1">Creator</p>
               </div>
             </motion.div>
 
