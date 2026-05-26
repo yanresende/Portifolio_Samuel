@@ -233,7 +233,7 @@ export default function Home() {
       tag: 'Cobertura',
       title: 'Cobertura de Grandes Eventos | Especialista em Viralização',
       desc: 'Cobertura completa com conteúdo que viraliza e engaja o público.',
-      image: '/timeline/img4.jpg',
+      image: '/timeline/cobertura.jpeg',
     },
     {
       tag: 'Documentário',
@@ -245,13 +245,13 @@ export default function Home() {
       tag: 'Autoral',
       title: 'Produções Autorais | Direção Criativa e Retrospectiva',
       desc: 'Séries e projetos autorais com direção criativa do início ao fim.',
-      image: '/timeline/img6.jpg',
+      image: '/timeline/Proprio.jpeg',
     },
     {
       tag: 'Branding',
       title: 'Atlético Mineiro & Banco BMG | Marketing e Branding Esportivo',
       desc: 'Campanhas de marketing esportivo para o Galo e parceiro institucional.',
-      image: '/timeline/img7.jpg',
+      image: '/timeline/galo.jpeg',
     },
   ];
 
