@@ -68,8 +68,8 @@ export default function Home() {
 
   // Adiciona uma física elástica (smooth) para acabar com movimentos bruscos
   const smoothProgress = useSpring(scrollYProgressTimeline, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 350,
+    damping: 45,
     restDelta: 0.001
   });
 
@@ -514,7 +514,7 @@ export default function Home() {
 
       {/* Projetos Horizontais Dinâmicos (Scroll) */}
       <section ref={carouselRef} className="relative h-[300vh] bg-black">
-        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden py-10 md:py-20">
+        <div className="sticky top-0 h-[100svh] flex flex-col justify-center overflow-hidden py-10 md:py-20">
           <div className="px-4 md:px-8 max-w-7xl w-full mx-auto mb-16 shrink-0">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
