@@ -216,42 +216,56 @@ export default function Home() {
       title: 'DBE 2024 | Reportagem e Host Oficial',
       desc: 'O Desafio Brasileiro de eSports foi o cenário para uma entrega de cobertura 360°. Atuei como repórter oficial durante os quatro dias de evento, sendo responsável pela curadoria e criação de conteúdo estratégico para redes sociais (Reels e Stories).',
       image: '/timeline/DBE_2024.jpeg',
+      positionMobile: '40% center',
+      positionDesktop: 'center',
     },
     {
       tag: 'Case',
       title: 'Gamescom 2025 | Case de Sucesso: Buffly',
       desc: 'O Desafio Brasileiro de eSports foi o cenário para uma entrega de cobertura 360°. Atuei como repórter oficial durante os quatro dias de evento, sendo responsável pela curadoria e criação de conteúdo estratégico para redes sociais (Reels e Stories).',
       image: '/timeline/Gamescom_2025.jpeg',
+      positionMobile: 'center',
+      positionDesktop: '50% 0%',
     },
     {
       tag: 'Host',
       title: 'Narração e Apresentação | Shoutcasting & Host',
       desc: 'O Desafio Brasileiro de eSports foi o cenário para uma entrega de cobertura 360°. Atuei como repórter oficial durante os quatro dias de evento, sendo responsável pela curadoria e criação de conteúdo estratégico para redes sociais (Reels e Stories).',
       image: '/timeline/femee.png',
+      positionMobile: 'center',
+      positionDesktop: 'center',
     },
     {
       tag: 'Cobertura',
       title: 'Cobertura de Grandes Eventos | Especialista em Viralização',
       desc: 'O Desafio Brasileiro de eSports foi o cenário para uma entrega de cobertura 360°. Atuei como repórter oficial durante os quatro dias de evento, sendo responsável pela curadoria e criação de conteúdo estratégico para redes sociais (Reels e Stories).',
       image: '/timeline/cobertura.jpeg',
+      positionMobile: 'center',
+      positionDesktop: 'center',
     },
     {
       tag: 'Documentário',
       title: 'IEM Rio 2026 | Case Trexx: Experiência e Documentário',
       desc: 'O Desafio Brasileiro de eSports foi o cenário para uma entrega de cobertura 360°. Atuei como repórter oficial durante os quatro dias de evento, sendo responsável pela curadoria e criação de conteúdo estratégico para redes sociais (Reels e Stories).',
       image: '/timeline/IEM_RIO.jpeg',
+      positionMobile: 'center',
+      positionDesktop: 'center',
     },
     {
       tag: 'Autoral',
       title: 'Produções Autorais | Direção Criativa e Retrospectiva',
       desc: 'O Desafio Brasileiro de eSports foi o cenário para uma entrega de cobertura 360°. Atuei como repórter oficial durante os quatro dias de evento, sendo responsável pela curadoria e criação de conteúdo estratégico para redes sociais (Reels e Stories).',
       image: '/timeline/Proprio.jpeg',
+      positionMobile: 'center',
+      positionDesktop: '20% 0%',
     },
     {
       tag: 'Branding',
       title: 'Atlético Mineiro & Banco BMG | Marketing e Branding Esportivo',
       desc: 'O Desafio Brasileiro de eSports foi o cenário para uma entrega de cobertura 360°. Atuei como repórter oficial durante os quatro dias de evento, sendo responsável pela curadoria e criação de conteúdo estratégico para redes sociais (Reels e Stories).',
       image: '/timeline/galo.jpeg',
+      positionMobile: 'center',
+      positionDesktop: '20% 0%',
     },
   ];
 
@@ -556,7 +570,8 @@ export default function Home() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover timeline-img transition-transform duration-700 group-hover:scale-105"
+                    style={{ '--pos-m': item.positionMobile, '--pos-d': item.positionDesktop } as React.CSSProperties}
                   />
 
                   {/* Overlay gradiente — mais forte na base para garantir leitura */}

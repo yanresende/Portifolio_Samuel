@@ -111,3 +111,13 @@ body {
 .blob {
   animation: blob 7s infinite;
 }
+
+.timeline-img {
+  object-position: var(--pos-m, center);
+}
+
+@media (min-width: 768px) {
+  .timeline-img {
+    object-position: var(--pos-d, center);
+  }
+}
