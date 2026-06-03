@@ -587,13 +587,12 @@ export default function Home() {
                     </span>
                   </div>
 
-                  {/* Título — sempre visível */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 z-10">
-                    <h4 className="text-xl md:text-2xl font-bold text-white mb-2 line-clamp-2 drop-shadow-lg">
+                  {/* Texto completo no hover */}
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8 bg-gradient-to-t from-black/95 via-black/80 to-transparent md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
+                    <h4 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight drop-shadow-lg whitespace-normal break-words">
                       {item.title}
                     </h4>
-                    {/* Descrição — aparece no hover via group */}
-                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-2 max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-300">
+                    <p className="hidden md:block text-gray-200 text-sm md:text-base leading-relaxed whitespace-normal break-words">
                       {item.desc}
                     </p>
                   </div>
@@ -1193,9 +1192,9 @@ export default function Home() {
             </motion.div>
             {[
               { src: '/projetos/qu2.jpeg', tag: 'POW!', pos: 'top-2 right-0', clip: 'polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)', cls: 'bg-yellow-400 text-black pr-3 pl-5' },
-              { src: '/projetos/qu1.jpeg', tag: 'HOT!', pos: 'bottom-2 left-0', clip: 'polygon(0 0,100% 0,88% 50%,100% 100%,0 100%)', cls: 'bg-red-600 text-white pl-3 pr-5' },
+              { src: '/projetos/qu1.png', tag: 'HOT!', pos: 'bottom-2 left-0', clip: 'polygon(0 0,100% 0,88% 50%,100% 100%,0 100%)', cls: 'bg-red-600 text-white pl-3 pr-5' },
               { src: '/projetos/qu5.jpeg', tag: 'ZAP!', pos: 'top-2 left-0', clip: 'polygon(0 0,100% 0,88% 50%,100% 100%,0 100%)', cls: 'bg-yellow-400 text-black pl-3 pr-5' },
-              { src: '/projetos/qu6.jpeg', tag: 'WOW!', pos: 'bottom-2 right-0', clip: 'polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)', cls: 'bg-red-600 text-white pr-3 pl-5' },
+              { src: '/projetos/qu6.png', tag: 'WOW!', pos: 'bottom-2 right-0', clip: 'polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)', cls: 'bg-red-600 text-white pr-3 pl-5' },
             ].map((panel, i) => (
               <motion.div
                 key={i}
