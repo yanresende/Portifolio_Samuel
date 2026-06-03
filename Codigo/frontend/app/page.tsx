@@ -290,7 +290,7 @@ export default function Home() {
     { name: 'Itatiaia', logo: '/brands/itatiaia_logo.png' },
     { name: 'Lbee', logo: '/brands/LBEE_logo.png' },
     { name: 'Buffly', logo: '/brands/buffly_logo.png' },
-    { name: 'Trexx', logo: '/brands/trexx_logo.png' },
+    { name: 'Trexx', logo: '/brands/Trexx_logo.png' },
     { name: 'DiversiGames', logo: '/brands/DiversiGames_Logo.png' },
     { name: 'Blink', logo: '/brands/BLINK_Logo.png' },
     { name: 'GPJ', logo: '/brands/gpj_logo.png' },
