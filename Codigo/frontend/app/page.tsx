@@ -1192,10 +1192,10 @@ export default function Home() {
               </div>
             </motion.div>
             {[
-              { src: '/projetos/q2.jpeg', tag: 'POW!', pos: 'top-2 right-0', clip: 'polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)', cls: 'bg-yellow-400 text-black pr-3 pl-5' },
-              { src: '/projetos/q3.jpeg', tag: 'HOT!', pos: 'bottom-2 left-0', clip: 'polygon(0 0,100% 0,88% 50%,100% 100%,0 100%)', cls: 'bg-red-600 text-white pl-3 pr-5' },
-              { src: '/projetos/q4.jpeg', tag: 'ZAP!', pos: 'top-2 left-0', clip: 'polygon(0 0,100% 0,88% 50%,100% 100%,0 100%)', cls: 'bg-yellow-400 text-black pl-3 pr-5' },
-              { src: '/projetos/q5.jpeg', tag: 'WOW!', pos: 'bottom-2 right-0', clip: 'polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)', cls: 'bg-red-600 text-white pr-3 pl-5' },
+              { src: '/projetos/qu2.jpeg', tag: 'POW!', pos: 'top-2 right-0', clip: 'polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)', cls: 'bg-yellow-400 text-black pr-3 pl-5' },
+              { src: '/projetos/qu1.jpeg', tag: 'HOT!', pos: 'bottom-2 left-0', clip: 'polygon(0 0,100% 0,88% 50%,100% 100%,0 100%)', cls: 'bg-red-600 text-white pl-3 pr-5' },
+              { src: '/projetos/qu5.jpeg', tag: 'ZAP!', pos: 'top-2 left-0', clip: 'polygon(0 0,100% 0,88% 50%,100% 100%,0 100%)', cls: 'bg-yellow-400 text-black pl-3 pr-5' },
+              { src: '/projetos/qu6.jpeg', tag: 'WOW!', pos: 'bottom-2 right-0', clip: 'polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)', cls: 'bg-red-600 text-white pr-3 pl-5' },
             ].map((panel, i) => (
               <motion.div
                 key={i}
