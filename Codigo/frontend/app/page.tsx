@@ -308,9 +308,9 @@ export default function Home() {
   ];
 
   const networkStats = [
-    { id: 1, name: 'Instagram', followers: instagramData.followers, metric: instagramData.views, icon: <FaInstagram size={32} />, color: 'from-pink-500 to-purple-600', textColor: 'text-pink-500' },
-    { id: 2, name: 'TikTok', followers: '16.400+', metric: '2.4+ mi Views', icon: <FaTiktok size={32} />, color: 'from-cyan-500 to-blue-600', textColor: 'text-cyan-500' },
-    { id: 3, name: 'YouTube', followers: youtubeData.followers, metric: youtubeData.views, icon: <FaYoutube size={32} />, color: 'from-red-500 to-red-700', textColor: 'text-red-500' },
+    { id: 1, name: 'Instagram', followers: '11.400+', metric: instagramData.views, icon: <FaInstagram size={32} />, color: 'from-pink-500 to-purple-600', textColor: 'text-pink-500' },
+    { id: 2, name: 'TikTok', followers: '18.500+', metric: '2.4+ mi Views', icon: <FaTiktok size={32} />, color: 'from-cyan-500 to-blue-600', textColor: 'text-cyan-500' },
+    { id: 3, name: 'YouTube', followers: '26.000+', metric: youtubeData.views, icon: <FaYoutube size={32} />, color: 'from-red-500 to-red-700', textColor: 'text-red-500' },
     { id: 4, name: 'Twitch', followers: '1.719+', metric: '100K+ Horas/mês', icon: <FaTwitch size={32} />, color: 'from-purple-500 to-purple-700', textColor: 'text-purple-500' },
   ];
 
