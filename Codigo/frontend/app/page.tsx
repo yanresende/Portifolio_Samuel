@@ -270,8 +270,8 @@ export default function Home() {
   ];
 
   const stats = [
-    { number: '2.440.500+', label: 'Total Visualizações' },
-    { number: '50.319+', label: 'Seguidores' },
+    { number: '60mi+', label: 'Total Visualizações' },
+    { number: '2mi+', label: 'Seguidores' },
     { number: '79.5K+', label: 'Contas Alcançadas' },
     { number: '3mi+', label: 'Curtidas no TikTok' },
   ];
@@ -1325,7 +1325,7 @@ export default function Home() {
               <FaInstagram size={24} />
             </motion.a>
             <motion.a
-              href="https://www.tiktok.com/@samuelbola"
+              href="https://www.tiktok.com/@samuelbola_"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: -10 }}
