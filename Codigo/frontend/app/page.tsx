@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
 import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle, Ticket } from 'lucide-react';
-import { FaInstagram, FaTwitter, FaYoutube, FaTwitch, FaTiktok } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaTwitch, FaTiktok } from 'react-icons/fa';
 
 export default function Home() {
   // Estado para armazenar os dados dinâmicos do YouTube
@@ -126,9 +126,9 @@ export default function Home() {
     {
       id: 1,
       title: 'O Recomeço',
-      description: '+1M visualizações orgânicas',
+      description: '31k+ visualizações orgânicas',
       gradient: 'from-red-600 to-rose-600',
-      views: '1.2M',
+      views: '31k+ Views',
       youtubeId: 'ZmCopOVz6xo',
       span: 'md:col-span-12 lg:col-span-8',
     },
@@ -273,7 +273,7 @@ export default function Home() {
     { number: '2.440.500+', label: 'Total Visualizações' },
     { number: '50.319+', label: 'Seguidores' },
     { number: '79.5K+', label: 'Contas Alcançadas' },
-    { number: '2.2mi+', label: 'Curtidas no TikTok' },
+    { number: '3mi+', label: 'Curtidas no TikTok' },
   ];
 
   const brands = [
@@ -308,10 +308,10 @@ export default function Home() {
   ];
 
   const networkStats = [
-    { id: 1, name: 'Instagram', followers: '11.400+', metric: instagramData.views, icon: <FaInstagram size={32} />, color: 'from-pink-500 to-purple-600', textColor: 'text-pink-500' },
-    { id: 2, name: 'TikTok', followers: '18.500+', metric: '2.4+ mi Views', icon: <FaTiktok size={32} />, color: 'from-cyan-500 to-blue-600', textColor: 'text-cyan-500' },
-    { id: 3, name: 'YouTube', followers: '26.000+', metric: youtubeData.views, icon: <FaYoutube size={32} />, color: 'from-red-500 to-red-700', textColor: 'text-red-500' },
-    { id: 4, name: 'Twitch', followers: '1.719+', metric: '100K+ Horas/mês', icon: <FaTwitch size={32} />, color: 'from-purple-500 to-purple-700', textColor: 'text-purple-500' },
+    { id: 1, name: 'Instagram', followers: '11.400+', metric: '25mi+ Views', icon: <FaInstagram size={32} />, color: 'from-pink-500 to-purple-600', textColor: 'text-pink-500' },
+    { id: 2, name: 'TikTok', followers: '18.500+', metric: '20mi+ Views', icon: <FaTiktok size={32} />, color: 'from-cyan-500 to-blue-600', textColor: 'text-cyan-500' },
+    { id: 3, name: 'YouTube', followers: '26.000+', metric: '18mi+ Views', icon: <FaYoutube size={32} />, color: 'from-red-500 to-red-700', textColor: 'text-red-500' },
+    { id: 4, name: 'Twitch', followers: '1.719+', metric: '10K+ Horas totais', icon: <FaTwitch size={32} />, color: 'from-purple-500 to-purple-700', textColor: 'text-purple-500' },
   ];
 
   const coupons = [
@@ -407,20 +407,7 @@ export default function Home() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-red-600 to-rose-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-red-500/50 transition-all"
-            >
-              Ver Trabalhos <ArrowRight size={20} />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-gray-600 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:border-red-500 hover:shadow-lg hover:shadow-red-500/20 transition-all"
-            >
-              <Play size={20} /> Reel Destacado
-            </motion.button>
+            
           </motion.div>
 
           {/* Scroll Indicator */}
@@ -495,6 +482,59 @@ export default function Home() {
             </div>
           ))}
         </motion.div>
+      </section>
+
+      {/* Social Links */}
+      <section className="py-16 px-4 md:px-8">
+        <div className="max-w-2xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3"
+          >
+            Me <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Siga</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="text-gray-400 text-base mb-10"
+          >
+            Acompanhe o conteúdo nas redes sociais.
+          </motion.p>
+          <div className="flex justify-center gap-6 md:gap-10">
+            {[
+              { href: "https://www.instagram.com/samuelbola_/", icon: <FaInstagram size={26} />, label: "Instagram", delay: 0.1 },
+              { href: "https://www.tiktok.com/@samuelbola_", icon: <FaTiktok size={24} />, label: "TikTok", delay: 0.2 },
+              { href: "https://www.youtube.com/@samuelbolaa", icon: <FaYoutube size={26} />, label: "YouTube", delay: 0.3 },
+              { href: "https://www.twitch.tv/samuelbola_", icon: <FaTwitch size={26} />, label: "Twitch", delay: 0.4 },
+            ].map(({ href, icon, label, delay }) => (
+              <motion.a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay }}
+                whileHover={{ scale: 1.1, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex flex-col items-center gap-2 group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white shadow-lg shadow-red-500/20 group-hover:shadow-red-500/50 transition-all duration-300">
+                  {icon}
+                </div>
+                <span className="text-xs text-gray-500 group-hover:text-red-400 transition-colors duration-300 font-medium tracking-wide">
+                  {label}
+                </span>
+              </motion.a>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Bento Grid - Serviços */}
@@ -637,7 +677,7 @@ export default function Home() {
       </section>
 
       {/* Featured Works Section */}
-      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full mt-10">
+      <section id="trabalhos" className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full mt-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1285,14 +1325,14 @@ export default function Home() {
               <FaInstagram size={24} />
             </motion.a>
             <motion.a
-              href="https://twitter.com/seuperfil"
+              href="https://www.tiktok.com/@samuelbola"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, rotate: 10 }}
+              whileHover={{ scale: 1.2, rotate: -10 }}
               whileTap={{ scale: 0.95 }}
               className="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center text-white hover:shadow-lg hover:shadow-red-500/50 transition-all"
             >
-              <FaTwitter size={24} />
+              <FaTiktok size={22} />
             </motion.a>
             <motion.a
               href="https://www.youtube.com/@samuelbolaa"
@@ -1305,7 +1345,7 @@ export default function Home() {
               <FaYoutube size={24} />
             </motion.a>
             <motion.a
-              href="https://twitch.tv/seucanal"
+              href="https://www.twitch.tv/samuelbola_"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 10 }}
