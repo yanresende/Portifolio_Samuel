@@ -272,7 +272,7 @@ export default function Home() {
   const stats = [
     { number: '60mi+', label: 'Total Visualizações' },
     { number: '2mi+', label: 'Seguidores' },
-    { number: '5m+', label: 'Contas Alcançadas' },
+    { number: '5mi+', label: 'Contas Alcançadas' },
     { number: '3mi+', label: 'Curtidas no TikTok' },
   ];
 
