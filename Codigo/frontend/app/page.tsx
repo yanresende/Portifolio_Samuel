@@ -343,7 +343,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover opacity-60"
           >
-            <source src="/video/Background_video.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dfgbwmqch/video/upload/v1781044030/Background_video_tdkonn.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
         </div>
