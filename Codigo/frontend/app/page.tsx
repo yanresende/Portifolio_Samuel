@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
 import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle, Ticket } from 'lucide-react';
-import { FaInstagram, FaYoutube, FaTwitch, FaTiktok } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaTwitch, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 
 export default function Home() {
   // Estado para armazenar os dados dinâmicos do YouTube
@@ -1296,20 +1296,25 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <motion.button
+            <motion.a
+              href="mailto:saresende555@gmail.com"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all"
+              className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all text-center"
             >
               Enviar Email
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
+              href="https://wa.me/5531995429200?text=Ol%C3%A1%20vim%20atrav%C3%A9s%20do%20seu%20portif%C3%B3lio%20web!"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-gray-600 text-white rounded-lg font-semibold hover:border-red-500 hover:shadow-lg hover:shadow-red-500/20 transition-all"
+              className="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-green-500/50 transition-all flex items-center justify-center gap-2"
             >
+              <FaWhatsapp size={20} />
               WhatsApp
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Social Links */}
