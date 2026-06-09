@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
-import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle, Ticket } from 'lucide-react';
+import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle, Ticket, Copy, Check, Mail, Phone } from 'lucide-react';
 import { FaInstagram, FaYoutube, FaTwitch, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 
 export default function Home() {
@@ -17,6 +17,14 @@ export default function Home() {
     followers: '10k+',
     views: '20m+ Views'
   });
+
+  const [copied, setCopied] = useState<'email' | 'phone' | null>(null);
+
+  const handleCopy = (text: string, type: 'email' | 'phone') => {
+    navigator.clipboard.writeText(text);
+    setCopied(type);
+    setTimeout(() => setCopied(null), 2000);
+  };
 
   // Busca os dados do YouTube ao carregar a página
   useEffect(() => {
@@ -1315,6 +1323,32 @@ export default function Home() {
               <FaWhatsapp size={20} />
               WhatsApp
             </motion.a>
+          </div>
+
+          {/* Contato explícito */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4">
+              <Mail size={18} className="text-red-400 shrink-0" />
+              <span className="text-white font-mono text-sm">saresende555@gmail.com</span>
+              <button
+                onClick={() => handleCopy('saresende555@gmail.com', 'email')}
+                className="ml-2 text-gray-400 hover:text-white transition-colors"
+                title="Copiar email"
+              >
+                {copied === 'email' ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
+              </button>
+            </div>
+            <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4">
+              <Phone size={18} className="text-green-400 shrink-0" />
+              <span className="text-white font-mono text-sm">(31) 99542-9200</span>
+              <button
+                onClick={() => handleCopy('(31) 99542-9200', 'phone')}
+                className="ml-2 text-gray-400 hover:text-white transition-colors"
+                title="Copiar telefone"
+              >
+                {copied === 'phone' ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
+              </button>
+            </div>
           </div>
 
           {/* Social Links */}
