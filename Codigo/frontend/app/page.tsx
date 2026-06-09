@@ -3,8 +3,8 @@
 import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
-import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle, Ticket, Copy, Check, Mail, Phone } from 'lucide-react';
-import { FaInstagram, FaYoutube, FaTwitch, FaTiktok, FaWhatsapp } from 'react-icons/fa';
+import { ArrowRight, Play, Camera, Mic, Monitor, Smartphone, Video, Heart, MessageCircle, Ticket, Copy, Check, Mail } from 'lucide-react';
+import { FaInstagram, FaYoutube, FaTwitch, FaTiktok } from 'react-icons/fa';
 
 export default function Home() {
   // Estado para armazenar os dados dinâmicos do YouTube
@@ -18,12 +18,12 @@ export default function Home() {
     views: '20m+ Views'
   });
 
-  const [copied, setCopied] = useState<'email' | 'phone' | null>(null);
+  const [copied, setCopied] = useState(false);
 
-  const handleCopy = (text: string, type: 'email' | 'phone') => {
+  const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
-    setCopied(type);
-    setTimeout(() => setCopied(null), 2000);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   // Busca os dados do YouTube ao carregar a página
@@ -1314,15 +1314,15 @@ export default function Home() {
               Enviar Email
             </motion.a>
             <motion.a
-              href="https://wa.me/5531995429200?text=Ol%C3%A1%20vim%20atrav%C3%A9s%20do%20seu%20portif%C3%B3lio%20web!"
+              href="https://ig.me/m/samuelbola_"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-green-500/50 transition-all flex items-center justify-center gap-2"
+              className="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-pink-500/50 transition-all flex items-center justify-center gap-2"
             >
-              <FaWhatsapp size={20} />
-              WhatsApp
+              <FaInstagram size={20} />
+              Instagram DM
             </motion.a>
           </div>
 
@@ -1332,22 +1332,11 @@ export default function Home() {
               <Mail size={18} className="text-red-400 shrink-0" />
               <span className="text-white font-mono text-sm">samueldeassis20@gmail.com</span>
               <button
-                onClick={() => handleCopy('samueldeassis20@gmail.com', 'email')}
+                onClick={() => handleCopy('samueldeassis20@gmail.com')}
                 className="ml-2 text-gray-400 hover:text-white transition-colors"
                 title="Copiar email"
               >
-                {copied === 'email' ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
-              </button>
-            </div>
-            <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4">
-              <Phone size={18} className="text-green-400 shrink-0" />
-              <span className="text-white font-mono text-sm">(31) 99542-9200</span>
-              <button
-                onClick={() => handleCopy('(31) 99542-9200', 'phone')}
-                className="ml-2 text-gray-400 hover:text-white transition-colors"
-                title="Copiar telefone"
-              >
-                {copied === 'phone' ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
+                {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}
               </button>
             </div>
           </div>
