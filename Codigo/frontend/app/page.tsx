@@ -1305,7 +1305,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <motion.a
-              href="mailto:saresende555@gmail.com"
+              href="mailto:samueldeassis20@gmail.com"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all text-center"
@@ -1329,9 +1329,9 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4">
               <Mail size={18} className="text-red-400 shrink-0" />
-              <span className="text-white font-mono text-sm">saresende555@gmail.com</span>
+              <span className="text-white font-mono text-sm">samueldeassis20@gmail.com</span>
               <button
-                onClick={() => handleCopy('saresende555@gmail.com', 'email')}
+                onClick={() => handleCopy('samueldeassis20@gmail.com', 'email')}
                 className="ml-2 text-gray-400 hover:text-white transition-colors"
                 title="Copiar email"
               >
