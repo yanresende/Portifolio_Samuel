@@ -1013,13 +1013,7 @@ export default function Home() {
                 Com mais de 6 anos de experiência criando conteúdo viral, especializado em reels, shorts e
                 transmissões ao vivo. Meu objetivo é criar conteúdo autêntico que inspire e divirta minha comunidade.
               </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-6 px-6 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-red-500/50 transition-all"
-              >
-                Saber Mais
-              </motion.button>
+            
             </div>
           </motion.div>
 
@@ -1388,9 +1382,126 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-800 py-12 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto text-center text-gray-400">
-          <p className="mb-2">© 2026 Samuel. Todos os direitos reservados.</p>
+      <footer className="bg-black border-t border-white/5 pt-16 pb-8 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+
+          {/* Top row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-white/5">
+
+            {/* Brand */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <h3 className="text-3xl font-black uppercase tracking-tight text-white">
+                  Samuel <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Bola</span>
+                </h3>
+                <Image
+                  src="/brands/icone_bola.png"
+                  alt="Samuel Bola"
+                  width={100}
+                  height={100}
+                  className="object-contain"
+                />
+              </div>
+              <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+                Creator de conteúdo viral especializado em gaming, eventos e lifestyle.
+              </p>
+              <div className="flex gap-3 mt-2">
+                {[
+                  { href: 'https://www.instagram.com/samuelbola_/', icon: <FaInstagram size={18} /> },
+                  { href: 'https://www.tiktok.com/@samuelbola_', icon: <FaTiktok size={16} /> },
+                  { href: 'https://www.youtube.com/@samuelbolaa', icon: <FaYoutube size={18} /> },
+                  { href: 'https://www.twitch.tv/samuelbola_', icon: <FaTwitch size={18} /> },
+                ].map(({ href, icon }, i) => (
+                  <a
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-500/20 hover:border-red-500/40 transition-all duration-300"
+                  >
+                    {icon}
+                  </a>
+                ))}
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-white/5 pt-4 mt-2">
+                <a href="https://lunar-code.vercel.app" target="_blank" rel="noopener noreferrer" className="group flex flex-col gap-3">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-3xl font-black uppercase tracking-tight text-white">
+                      Lunar <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Code</span>
+                    </h3>
+                    <Image
+                      src="/brands/Lunar.code_logo_sem_fundo.png"
+                      alt="LunarCode"
+                      width={180}
+                      height={180}
+                      className="object-contain"
+                    />
+                  </div>
+                  <p className="text-gray-500 text-sm leading-relaxed max-w-xs group-hover:text-gray-400 transition-colors">
+                    Criação de sistemas sob medida para problemas reais.
+                  </p>
+                  <span className="text-xs text-blue-500/70 group-hover:text-blue-400 transition-colors w-fit">
+                    lunar-code.vercel.app →
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            {/* Links */}
+            <div className="flex flex-col gap-3">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Navegação</h4>
+              {[
+                { label: 'Início', href: '#' },
+                { label: 'Trabalhos', href: '#trabalhos' },
+                { label: 'Contato', href: '#contato' },
+              ].map(({ label, href }) => (
+                <a key={label} href={href} className="text-gray-400 hover:text-white text-sm transition-colors w-fit">
+                  {label}
+                </a>
+              ))}
+            </div>
+
+            {/* Contact */}
+            <div className="flex flex-col gap-3">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Contato</h4>
+              <a href="mailto:samueldeassis20@gmail.com" className="text-gray-400 hover:text-white text-sm transition-colors w-fit flex items-center gap-2">
+                <Mail size={14} className="text-red-500" />
+                samueldeassis20@gmail.com
+              </a>
+              <a href="https://ig.me/m/samuelbola_" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors w-fit flex items-center gap-2">
+                <FaInstagram size={14} className="text-pink-500" />
+                Instagram DM
+              </a>
+            </div>
+          </div>
+
+          {/* Bottom row */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-gray-600 text-sm">© 2026 Samuel Bola. Todos os direitos reservados.</p>
+            <a
+              href="https://lunar-code.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 group"
+            >
+              <span className="text-gray-600 text-xs">Desenvolvido por</span>
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-blue-500/30 hover:bg-blue-500/5 transition-all duration-300">
+                <Image
+                  src="/brands/Lunar.code_logo.png"
+                  alt="LunarCode"
+                  width={20}
+                  height={20}
+                  className="object-contain"
+                />
+                <span className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 tracking-wide">
+                  LunarCode
+                </span>
+              </div>
+            </a>
+          </div>
+
         </div>
       </footer>
     </main>
