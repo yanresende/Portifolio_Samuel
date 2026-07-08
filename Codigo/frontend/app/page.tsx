@@ -316,19 +316,56 @@ export default function Home() {
   ];
 
   const networkStats = [
-    { id: 1, name: 'Instagram', followers: '11.400+', metric: '25mi+ Views', icon: <FaInstagram size={32} />, color: 'from-pink-500 to-purple-600', textColor: 'text-pink-500' },
-    { id: 2, name: 'TikTok', followers: '18.500+', metric: '20mi+ Views', icon: <FaTiktok size={32} />, color: 'from-cyan-500 to-blue-600', textColor: 'text-cyan-500' },
-    { id: 3, name: 'YouTube', followers: '26.000+', metric: '18mi+ Views', icon: <FaYoutube size={32} />, color: 'from-red-500 to-red-700', textColor: 'text-red-500' },
-    { id: 4, name: 'Twitch', followers: '1.719+', metric: '10K+ Horas totais', icon: <FaTwitch size={32} />, color: 'from-purple-500 to-purple-700', textColor: 'text-purple-500' },
+    {
+      id: 1,
+      name: 'Instagram',
+      icon: <FaInstagram size={22} />,
+      accent: 'text-pink-500',
+      metrics: [
+        { label: 'Seguidores', value: '11.400+' },
+        { label: 'Visualizações', value: '25mi+' },
+      ],
+    },
+    {
+      id: 2,
+      name: 'TikTok',
+      icon: <FaTiktok size={22} />,
+      accent: 'text-cyan-400',
+      metrics: [
+        { label: 'Seguidores', value: '18.500+' },
+        { label: 'Visualizações', value: '20mi+' },
+      ],
+    },
+    {
+      id: 3,
+      name: 'YouTube',
+      icon: <FaYoutube size={22} />,
+      accent: 'text-red-500',
+      metrics: [
+        { label: 'Inscritos', value: '26.000+' },
+        { label: 'Visualizações', value: '18mi+' },
+      ],
+    },
+    {
+      id: 4,
+      name: 'Twitch',
+      icon: <FaTwitch size={22} />,
+      accent: 'text-purple-400',
+      metrics: [
+        { label: 'Seguidores', value: '1.719+' },
+        { label: 'Horas totais', value: '10K+' },
+      ],
+    },
   ];
 
   const coupons = [
-    { id: 1, brand: 'Overclock', code: 'BOLA', discount: '10% OFF', link: 'https://bebaoverclock.com.br/' },
-    { id: 2, brand: 'Somos Resenha', code: 'Bola15', discount: '15% OFF', link: 'https://somosresenha.com.br/' },
-    { id: 3, brand: 'Rainclub', code: 'BOLA', discount: '10% OFF', link: 'https://www.instagram.com/the.rainclub/reels/' },
-    { id: 4, brand: 'No Ping', code: 'bola', discount: '10 Dias Gratis', link: 'https://noping.com/pt' },
-    { id: 5, brand: 'Sou Corneta', code: 'samuel12', discount: '12% OFF', link: 'https://soucorneta.com.br' },
-    { id: 6, brand: 'Super Skin', code: 'bola', discount: '+20% no deposito + 6 welcome cases', link: 'https://superskin.gg/portuguese' }
+    { id: 1, brand: 'Manual', code: 'samuel bola', discount: '40% na primeira compra', link: 'https://hello.manual.com.br' },
+    { id: 2, brand: 'Overclock', code: 'BOLA', discount: '10% OFF', link: 'https://bebaoverclock.com.br/' },
+    { id: 3, brand: 'Somos Resenha', code: 'Bola15', discount: '15% OFF', link: 'https://somosresenha.com.br/' },
+    { id: 4, brand: 'Rainclub', code: 'BOLA', discount: '10% OFF', link: 'https://www.instagram.com/the.rainclub/reels/' },
+    { id: 5, brand: 'No Ping', code: 'bola', discount: '10 Dias Gratis', link: 'https://noping.com/pt' },
+    { id: 6, brand: 'Sou Corneta', code: 'samuel12', discount: '12% OFF', link: 'https://soucorneta.com.br' },
+    { id: 7, brand: 'Super Skin', code: 'bola', discount: '+20% no deposito + 6 welcome cases', link: 'https://superskin.gg/portuguese' }
   ];
 
   const testimonials = [
@@ -544,6 +581,47 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+{/* Cupons de Parceiros */}
+      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
+            Meus <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Cupons</span>
+          </h2>
+          <p className="text-gray-400 text-lg">Aproveite os descontos exclusivos com meus parceiros.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {coupons.map((coupon, i) => (
+            <motion.div
+              key={coupon.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-slate-900 to-black border border-dashed border-red-500/30 rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-red-500/60 transition-colors"
+            >
+              <div className="absolute -right-4 -top-4 w-24 h-24 bg-red-500/10 rounded-full blur-xl group-hover:bg-red-500/20 transition-all" />
+              <Ticket size={24} className="text-red-500 mb-4" />
+              <h3 className="text-2xl font-black text-white mb-1">{coupon.brand}</h3>
+              <p className="text-red-400 font-bold text-xl mb-6">{coupon.discount}</p>
+              <div className="bg-black/50 border border-white/10 rounded-lg px-6 py-3 mb-6 w-full border-dashed">
+                <span className="text-white font-mono tracking-widest text-lg">{coupon.code}</span>
+              </div>
+              <motion.a
+                href={coupon.link}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-sm font-semibold text-white bg-red-600 hover:bg-red-500 px-6 py-3 rounded-full transition-colors w-full uppercase tracking-wider"
+              >
+                Usar Cupom
+              </motion.a>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
 
       {/* Bento Grid - Serviços */}
       <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
@@ -893,38 +971,88 @@ export default function Home() {
       </section>
 
       {/* Redes Sociais Metrics */}
-      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
-            Minhas <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-500">Redes</span>
-          </h2>
-          <p className="text-gray-400 text-lg">O impacto dos meus conteúdos em cada plataforma.</p>
-        </motion.div>
+      <section className="relative w-full overflow-hidden">
+        {/* Sem padding na seção e sem max-width: a foto precisa alcançar a borda da viewport,
+            como no media kit. O respiro vive só na coluna das métricas. */}
+        <div className="grid grid-cols-1 lg:grid-cols-[44%_1fr]">
+          {/* Painel de foto: estica com a altura da linha, sangrando topo, base e esquerda */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden h-[420px] sm:h-[520px] lg:h-auto lg:min-h-[620px]"
+          >
+            {/* A foto é paisagem (2654x1568) e opaca. object-cover recorta uma fatia vertical;
+                a posição em 42% mantém a cabeça inteira e deixa respiro na frente do rosto. */}
+            <Image
+              src="/projetos/imagem_numeros_sem_fundo.png"
+              alt="Samuel Bola"
+              fill
+              sizes="(max-width: 1024px) 100vw, 44vw"
+              className="object-cover object-[42%_center]"
+            />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {networkStats.map((item, i) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-slate-900/50 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center hover:bg-slate-800/50 hover:border-red-500/30 transition-all relative overflow-hidden group"
-            >
-              <div className={`absolute -right-4 -top-4 w-24 h-24 bg-gradient-to-br ${item.color} rounded-full blur-2xl opacity-10 group-hover:opacity-30 transition-opacity`} />
-              <div className={`w-16 h-16 rounded-full bg-gradient-to-br from-white/5 to-white/10 flex items-center justify-center ${item.textColor} mb-6 relative z-10 border border-white/10`}>
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-bold text-white mb-1">{item.name}</h3>
-              <p className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400 mb-2">{item.followers}</p>
-              <p className="text-gray-400 text-sm font-medium">{item.metric}</p>
+            {/* Escurece a base pra dar contraste ao texto sobre o cinza do estúdio */}
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/55 to-transparent" />
+
+            <div className="absolute bottom-8 md:bottom-12 left-4 md:left-8 right-4 z-10">
+              <h2
+                className="font-mono font-black uppercase tracking-tighter leading-none text-5xl sm:text-6xl lg:text-7xl text-white"
+                style={{ textShadow: '4px 0 rgba(220,38,38,.95), -4px 0 rgba(249,115,22,.85)' }}
+              >
+                Números
+              </h2>
+              <span className="inline-block mt-3 px-3 py-1 bg-orange-500 text-black font-mono text-sm md:text-base rounded-sm">
+                @samuel<span className="font-bold">bola</span>_
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Plataformas */}
+          <div className="py-14 md:py-16 px-4 md:px-8 lg:pl-14 xl:pl-20 lg:pr-8 xl:pr-16 max-w-3xl">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-7 md:mb-8">
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">
+                Minhas <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-500">Redes</span>
+              </h2>
+              <p className="text-gray-400 text-base">O impacto dos meus conteúdos em cada plataforma.</p>
             </motion.div>
-          ))}
+
+            <div className="divide-y divide-white/10">
+              {networkStats.map((item, i) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="py-5 md:py-6 first:pt-0 group"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <Play size={14} fill="currentColor" className={`${item.accent} shrink-0`} />
+                    <span className={`${item.accent} shrink-0`}>{item.icon}</span>
+                    <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white">
+                      {item.name}
+                    </h3>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-4 pl-7 md:pl-9">
+                    {item.metrics.map((metric) => (
+                      <div key={metric.label}>
+                        <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1">{metric.label}</p>
+                        <p className="text-2xl md:text-3xl font-black text-white leading-none">{metric.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+      <section className="py-20 md:py-28 px-4 md:px-8 max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -950,45 +1078,6 @@ export default function Home() {
             </motion.div>
           ))}
         </motion.div>
-      </section>
-
-      {/* Cupons de Parceiros */}
-      <section className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4">
-            Meus <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Cupons</span>
-          </h2>
-          <p className="text-gray-400 text-lg">Aproveite os descontos exclusivos com meus parceiros.</p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {coupons.map((coupon, i) => (
-            <motion.div
-              key={coupon.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-slate-900 to-black border border-dashed border-red-500/30 rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-red-500/60 transition-colors"
-            >
-              <div className="absolute -right-4 -top-4 w-24 h-24 bg-red-500/10 rounded-full blur-xl group-hover:bg-red-500/20 transition-all" />
-              <Ticket size={24} className="text-red-500 mb-4" />
-              <h3 className="text-2xl font-black text-white mb-1">{coupon.brand}</h3>
-              <p className="text-red-400 font-bold text-xl mb-6">{coupon.discount}</p>
-              <div className="bg-black/50 border border-white/10 rounded-lg px-6 py-3 mb-6 w-full border-dashed">
-                <span className="text-white font-mono tracking-widest text-lg">{coupon.code}</span>
-              </div>
-              <motion.a
-                href={coupon.link}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-sm font-semibold text-white bg-red-600 hover:bg-red-500 px-6 py-3 rounded-full transition-colors w-full uppercase tracking-wider"
-              >
-                Usar Cupom
-              </motion.a>
-            </motion.div>
-          ))}
-        </div>
       </section>
 
       {/* About Section */}
