@@ -315,25 +315,38 @@ export default function Home() {
     { title: 'Live Hosting', desc: 'Domínio para manter o engajamento alto e o chat ativo durante toda a transmissão.',img: "/projetos/qu3.jpg" , icon: <Video className="w-8 h-8 mb-4 text-red-500" />, span: 'md:col-span-1 md:row-span-1', gradient: 'from-orange-600/20 to-amber-600/20' },
   ];
 
-  const networkStats = [
+  // `period` é opcional: só Instagram e TikTok têm recorte temporal declarado.
+  const networkStats: {
+    id: number;
+    name: string;
+    period?: string;
+    icon: React.ReactNode;
+    accent: string;
+    metrics: { label: string; value: string }[];
+  }[] = [
     {
       id: 1,
       name: 'Instagram',
+      period: 'últimos 90 dias',
       icon: <FaInstagram size={22} />,
       accent: 'text-pink-500',
       metrics: [
-        { label: 'Seguidores', value: '11.400+' },
-        { label: 'Visualizações', value: '25mi+' },
+        { label: 'Seguidores', value: '12.000+' },
+        { label: 'Visualizações', value: '10,2mi' },
+        { label: 'Contas alcançadas', value: '9,1mi' },
+        { label: 'Visitas', value: '43.427' },
       ],
     },
     {
       id: 2,
       name: 'TikTok',
+      period: 'último ano',
       icon: <FaTiktok size={22} />,
       accent: 'text-cyan-400',
       metrics: [
-        { label: 'Seguidores', value: '18.500+' },
-        { label: 'Visualizações', value: '20mi+' },
+        { label: 'Seguidores', value: '19.000+' },
+        { label: 'Visualizações', value: '30,6mi' },
+        { label: 'Curtidas', value: '2,9mi' },
       ],
     },
     {
@@ -342,8 +355,9 @@ export default function Home() {
       icon: <FaYoutube size={22} />,
       accent: 'text-red-500',
       metrics: [
-        { label: 'Inscritos', value: '26.000+' },
-        { label: 'Visualizações', value: '18mi+' },
+        { label: 'Inscritos', value: '27.500+' },
+        { label: 'Visualizações', value: '26,8mi' },
+        { label: 'Tempo de visualização', value: '151.449h' },
       ],
     },
     {
@@ -352,8 +366,21 @@ export default function Home() {
       icon: <FaTwitch size={22} />,
       accent: 'text-purple-400',
       metrics: [
-        { label: 'Seguidores', value: '1.719+' },
-        { label: 'Horas totais', value: '10K+' },
+        { label: 'Seguidores', value: '1K+' },
+      ],
+    },
+    {
+      id: 5,
+      name: 'Kwai',
+      // react-icons não traz um ícone do Kwai; monograma no lugar mantém o alinhamento.
+      icon: (
+        <span className="grid place-items-center w-[22px] h-[22px] rounded-md border border-current text-[13px] font-black leading-none">
+          K
+        </span>
+      ),
+      accent: 'text-orange-400',
+      metrics: [
+        { label: 'Seguidores', value: '3K+' },
       ],
     },
   ];
@@ -1017,8 +1044,8 @@ export default function Home() {
           </motion.div>
 
           {/* Plataformas */}
-          <div className="py-14 md:py-16 px-4 md:px-8 lg:pl-14 xl:pl-20 lg:pr-8 xl:pr-16 max-w-3xl order-1 lg:order-2">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-7 md:mb-8">
+          <div className="py-12 md:py-12 px-4 md:px-8 lg:pl-14 xl:pl-20 lg:pr-8 xl:pr-16 max-w-3xl order-1 lg:order-2">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
               <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">
                 Minhas <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-500">Redes</span>
               </h2>
@@ -1033,21 +1060,28 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="py-5 md:py-6 first:pt-0 group"
+                  className="py-4 first:pt-0 group"
                 >
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-3">
                     <Play size={14} fill="currentColor" className={`${item.accent} shrink-0`} />
                     <span className={`${item.accent} shrink-0`}>{item.icon}</span>
                     <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white">
                       {item.name}
                     </h3>
+                    {item.period && (
+                      <span className="text-[10px] uppercase tracking-widest text-gray-500 whitespace-nowrap">
+                        {item.period}
+                      </span>
+                    )}
                   </div>
 
-                  <div className="grid grid-cols-2 gap-x-8 gap-y-4 pl-7 md:pl-9">
+                  {/* 4 colunas no desktop: mantém cada plataforma em uma linha só,
+                      senão o Instagram (4 métricas) empurra a seção pra fora da tela. */}
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-3 pl-7 md:pl-9">
                     {item.metrics.map((metric) => (
                       <div key={metric.label}>
                         <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1">{metric.label}</p>
-                        <p className="text-2xl md:text-3xl font-black text-white leading-none">{metric.value}</p>
+                        <p className="text-xl md:text-2xl font-black text-white leading-none">{metric.value}</p>
                       </div>
                     ))}
                   </div>
