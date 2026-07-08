@@ -983,6 +983,13 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative overflow-hidden h-[420px] sm:h-[520px] lg:h-auto lg:min-h-[620px] order-2 lg:order-1"
           >
+            {/* Brilho vermelho atrás do recorte: o PNG é sem fundo, então o halo aparece
+                ao redor do corpo. Fica atrás da <Image> na ordem do DOM. */}
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_45%_42%,rgba(248,60,60,0.85),rgba(180,25,25,0.45)_42%,rgba(90,12,12,0.18)_65%,transparent_82%)]"
+            />
+
             {/* A foto é paisagem (2654x1568) e opaca. object-cover recorta uma fatia vertical;
                 a posição em 42% mantém a cabeça inteira e deixa respiro na frente do rosto. */}
             <Image
