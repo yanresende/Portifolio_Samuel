@@ -981,7 +981,7 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden h-[420px] sm:h-[520px] lg:h-auto lg:min-h-[620px]"
+            className="relative overflow-hidden h-[420px] sm:h-[520px] lg:h-auto lg:min-h-[620px] order-2 lg:order-1"
           >
             {/* A foto é paisagem (2654x1568) e opaca. object-cover recorta uma fatia vertical;
                 a posição em 42% mantém a cabeça inteira e deixa respiro na frente do rosto. */}
@@ -990,7 +990,7 @@ export default function Home() {
               alt="Samuel Bola"
               fill
               sizes="(max-width: 1024px) 100vw, 44vw"
-              className="object-cover object-[42%_center]"
+              className="object-cover object-[42%_center] -scale-x-100"
             />
 
             {/* Escurece a base pra dar contraste ao texto sobre o cinza do estúdio */}
@@ -1010,7 +1010,7 @@ export default function Home() {
           </motion.div>
 
           {/* Plataformas */}
-          <div className="py-14 md:py-16 px-4 md:px-8 lg:pl-14 xl:pl-20 lg:pr-8 xl:pr-16 max-w-3xl">
+          <div className="py-14 md:py-16 px-4 md:px-8 lg:pl-14 xl:pl-20 lg:pr-8 xl:pr-16 max-w-3xl order-1 lg:order-2">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-7 md:mb-8">
               <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-3">
                 Minhas <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-500">Redes</span>
