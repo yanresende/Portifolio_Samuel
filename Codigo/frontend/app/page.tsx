@@ -386,7 +386,7 @@ export default function Home() {
   ];
 
   const coupons = [
-    { id: 1, brand: 'Manual', code: 'samuel bola', discount: '40% na primeira compra', link: 'https://hello.manual.com.br' },
+    { id: 1, brand: 'Manual', code: 'samuel bola', discount: '40% na primeira compra', link: 'https://botm.cc/l/8jmxXpL' },
     { id: 2, brand: 'Overclock', code: 'BOLA', discount: '10% OFF', link: 'https://bebaoverclock.com.br/' },
     { id: 3, brand: 'Somos Resenha', code: 'Bola15', discount: '15% OFF', link: 'https://somosresenha.com.br/' },
     { id: 4, brand: 'Rainclub', code: 'BOLA', discount: '10% OFF', link: 'https://www.instagram.com/the.rainclub/reels/' },
